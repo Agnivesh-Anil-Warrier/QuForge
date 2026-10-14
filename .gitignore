@@ -2,24 +2,42 @@
 .venv/
 env/
 venv/
+ENV/
 
-# Raw dataset and cached tensors
+# Raw dataset and cached tensors / arrays
 data/raw/
 data/cache/
+*.npy
+*.npz
 
 # Model checkpoints and weights
 results/checkpoints/
 *.pt
 *.pth
+*.ckpt
+*.bin
 
-# Python cache & build
+# Python cache, bytecode, and packaging
 __pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
 dist/
 build/
+*.so
+*.pyd
 
-# Testing & notebooks
+# Testing, coverage, and notebooks
 .pytest_cache/
+.coverage
+htmlcov/
 .ipynb_checkpoints/
+
+# Operating System & IDE artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
