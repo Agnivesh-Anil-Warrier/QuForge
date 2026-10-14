@@ -1,0 +1,82 @@
+{
+  "group_a": "Model A (frozen_random)",
+  "group_b": "Model B (trainable)",
+  "common_seeds": [
+    42,
+    43,
+    44
+  ],
+  "n_pairs": 3,
+  "tests": {
+    "test_acc": {
+      "mean_a": 0.8504034761018001,
+      "std_a": 0.01902117125517639,
+      "mean_b": 0.8497827436374923,
+      "std_b": 0.01425321229448171,
+      "mean_diff": -0.0006207324643078641,
+      "std_diff": 0.005128091757249643,
+      "cohens_d": -0.12104550653375643,
+      "paired_t_stat": -0.20965696734437664,
+      "paired_t_pval": 0.8533528849786516,
+      "wilcoxon_stat": 2.0,
+      "wilcoxon_pval": 0.75,
+      "is_significant_p05": false
+    },
+    "test_bal_acc": {
+      "mean_a": 0.812784765540671,
+      "std_a": 0.02846535838336134,
+      "mean_b": 0.819393787897725,
+      "std_b": 0.015260317370591026,
+      "mean_diff": 0.006609022357053851,
+      "std_diff": 0.013785677012046572,
+      "cohens_d": 0.47941224440980135,
+      "paired_t_stat": 0.8303663650884043,
+      "paired_t_pval": 0.4936704141560136,
+      "wilcoxon_stat": 3.0,
+      "wilcoxon_pval": 1.0,
+      "is_significant_p05": false
+    },
+    "test_f1": {
+      "mean_a": 0.7631747826644243,
+      "std_a": 0.039782384725190446,
+      "mean_b": 0.7714744593689926,
+      "std_b": 0.020938768608089166,
+      "mean_diff": 0.008299676704568252,
+      "std_diff": 0.01918652057216164,
+      "cohens_d": 0.432578521642456,
+      "paired_t_stat": 0.749247977747767,
+      "paired_t_pval": 0.5318454965264987,
+      "wilcoxon_stat": 3.0,
+      "wilcoxon_pval": 1.0,
+      "is_significant_p05": false
+    },
+    "test_auc": {
+      "mean_a": 0.8627166553675739,
+      "std_a": 0.014717798922170039,
+      "mean_b": 0.8748148905629222,
+      "std_b": 0.015449071597989854,
+      "mean_diff": 0.01209823519534814,
+      "std_diff": 0.002356242050006702,
+      "cohens_d": 5.1345468498509,
+      "paired_t_stat": 8.893296017784486,
+      "paired_t_pval": 0.01240885810400305,
+      "wilcoxon_stat": 0.0,
+      "wilcoxon_pval": 0.25,
+      "is_significant_p05": true
+    },
+    "test_loss": {
+      "mean_a": 0.8123462958912314,
+      "std_a": 0.10497541119646599,
+      "mean_b": 0.7412730262821169,
+      "std_b": 0.003042856813447388,
+      "mean_diff": -0.07107326960911446,
+      "std_diff": 0.10800244410812843,
+      "cohens_d": -0.6580709371535916,
+      "paired_t_stat": -1.139812298134486,
+      "paired_t_pval": 0.372475256713781,
+      "wilcoxon_stat": 1.0,
+      "wilcoxon_pval": 0.5,
+      "is_significant_p05": false
+    }
+  }
+}
