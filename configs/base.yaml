@@ -39,6 +39,7 @@ training:
   lr_quantum_filter: 1.0e-2
   weight_decay: 1.0e-4
   loss_type: "bce_with_logits"  # Supports class-weighted BCE
+  pos_weight: 1.9625
   num_workers: 0                # Optimal for CPU statevector simulation
   checkpoint_dir: "results/checkpoints"
   save_every_epoch: true
