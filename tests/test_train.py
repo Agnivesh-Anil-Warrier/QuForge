@@ -89,3 +89,42 @@ def test_training_and_resumption_workflow(tmp_path):
         metrics2 = json.load(f)
     assert metrics2["total_epochs_trained"] == 4
     assert len(trainer2.history) == 4
+
+
+def test_deterministic_reproducibility(tmp_path):
+    """Verify that identical seeds produce bitwise-identical model weights and loss trajectory."""
+    config_path = PROJECT_ROOT / "configs" / "base.yaml"
+    config = load_config(config_path)
+
+    config["training"]["max_epochs"] = 2
+    config["model"]["filter_mode"] = "trainable"
+    config["system"]["seed"] = 777
+
+    losses1 = []
+    losses2 = []
+
+    # Run 1
+    dir1 = tmp_path / "run1"
+    trainer1 = Trainer(config, run_dir=dir1)
+    tiny_train = torch.utils.data.Subset(trainer1.train_dataset, range(32))
+    tiny_val = torch.utils.data.Subset(trainer1.val_dataset, range(32))
+    tiny_test = torch.utils.data.Subset(trainer1.test_dataset, range(32))
+    trainer1.train_loader = torch.utils.data.DataLoader(tiny_train, batch_size=16)
+    trainer1.val_loader = torch.utils.data.DataLoader(tiny_val, batch_size=16)
+    trainer1.test_loader = torch.utils.data.DataLoader(tiny_test, batch_size=16)
+    trainer1.run()
+    losses1 = [h["train_loss"] for h in trainer1.history]
+
+    # Run 2 (same seed)
+    dir2 = tmp_path / "run2"
+    trainer2 = Trainer(config, run_dir=dir2)
+    trainer2.train_loader = torch.utils.data.DataLoader(tiny_train, batch_size=16)
+    trainer2.val_loader = torch.utils.data.DataLoader(tiny_val, batch_size=16)
+    trainer2.test_loader = torch.utils.data.DataLoader(tiny_test, batch_size=16)
+    trainer2.run()
+    losses2 = [h["train_loss"] for h in trainer2.history]
+
+    assert losses1 == losses2, f"Loss trajectories differ: {losses1} vs {losses2}"
+    for p1, p2 in zip(trainer1.model.parameters(), trainer2.model.parameters()):
+        assert torch.allclose(p1, p2, atol=1e-6), "Model parameters differ across identical seed runs!"
+

@@ -13,6 +13,8 @@ archive/
 
 # Model checkpoints and weights
 results/checkpoints/
+results/smoke_tests/
+results/timing_benchmark/
 *.pt
 *.pth
 *.ckpt

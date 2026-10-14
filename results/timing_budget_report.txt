@@ -1,0 +1,35 @@
+======================================================================
+QForge Phase 4: Hardware Budget & Timing Verification Report
+======================================================================
+
+1. Smoke Test Results (64 images, 2 epochs per mode):
+   - frozen_random  : PASSED
+   - trainable      : PASSED
+   - classical_conv : PASSED
+   - none           : PASSED
+
+2. Empirical Full Dataset Timings (3,318 train, 830 val images):
+   Mode             | Train (s)  | Val (s)  | Total/Epoch (s)  | Throughput
+   -----------------------------------------------------------------
+   classical_conv   | 2.56       | 0.24     | 2.80             | 1296.8 img/s
+   none             | 2.30       | 0.21     | 2.51             | 1445.0 img/s
+   frozen_random    | 5.88       | 1.07     | 6.95             | 564.2 img/s
+   trainable        | 8.71       | 1.10     | 9.81             | 380.9 img/s
+
+3. Experiment Grid Time Budget Projection (3-Day / 72-Hour Laptop Ceiling):
+   Experiment                | Mode            | Seeds  | Sec/Epoch  | Est Hours (~40 ep) | Max Hours (100 ep)
+   ----------------------------------------------------------------------------------------
+   A: frozen_random          | frozen_random   | 5      | 6.95       | 0.39               | 0.97 h
+   B: trainable              | trainable       | 5      | 9.81       | 0.55               | 1.36 h
+   C: classical_conv         | classical_conv  | 5      | 2.80       | 0.16               | 0.39 h
+   D: none                   | none            | 5      | 2.51       | 0.14               | 0.35 h
+   Ablation B (Depth L=2)    | trainable       | 3      | 13.24      | 0.44               | 1.10 h
+   Ablation B (Depth L=3)    | trainable       | 3      | 16.68      | 0.56               | 1.39 h
+   Ablation B (lr=1e-3)      | trainable       | 3      | 9.81       | 0.33               | 0.82 h
+   Ablation B (lr=1e-1)      | trainable       | 3      | 9.81       | 0.33               | 0.82 h
+   ----------------------------------------------------------------------------------------
+   Total Seed Runs:              32 runs
+   Estimated Time (Avg 40 ep):   2.88 hours (0.12 days)
+   Worst-Case Time (Cap 100 ep): 7.19 hours (0.3 days)
+   Fits Under 3-Day Ceiling:     YES (COMPLIANT)
+======================================================================

@@ -1,0 +1,110 @@
+{
+  "smoke_test_results": {
+    "frozen_random": true,
+    "trainable": true,
+    "classical_conv": true,
+    "none": true
+  },
+  "empirical_timings_per_epoch": {
+    "classical_conv": {
+      "train_sec": 2.56,
+      "val_sec": 0.24,
+      "total_epoch_sec": 2.8,
+      "throughput_imgs_per_sec": 1296.8
+    },
+    "none": {
+      "train_sec": 2.3,
+      "val_sec": 0.21,
+      "total_epoch_sec": 2.51,
+      "throughput_imgs_per_sec": 1445.0
+    },
+    "frozen_random": {
+      "train_sec": 5.88,
+      "val_sec": 1.07,
+      "total_epoch_sec": 6.95,
+      "throughput_imgs_per_sec": 564.2
+    },
+    "trainable": {
+      "train_sec": 8.71,
+      "val_sec": 1.1,
+      "total_epoch_sec": 9.81,
+      "throughput_imgs_per_sec": 380.9
+    }
+  },
+  "grid_budget_analysis": {
+    "ceiling_hours": 72.0,
+    "total_experiments": 8,
+    "total_seed_runs": 32,
+    "est_total_hours_avg_epochs": 2.88,
+    "est_total_days_avg_epochs": 0.12,
+    "max_total_hours_100_epochs": 7.19,
+    "max_total_days_100_epochs": 0.3,
+    "fits_under_3_days": true,
+    "breakdown": [
+      {
+        "experiment": "A: frozen_random",
+        "mode": "frozen_random",
+        "seeds": 5,
+        "sec_per_epoch": 6.95,
+        "est_hours_avg_epochs": 0.39,
+        "max_hours_100_epochs": 0.97
+      },
+      {
+        "experiment": "B: trainable",
+        "mode": "trainable",
+        "seeds": 5,
+        "sec_per_epoch": 9.81,
+        "est_hours_avg_epochs": 0.55,
+        "max_hours_100_epochs": 1.36
+      },
+      {
+        "experiment": "C: classical_conv",
+        "mode": "classical_conv",
+        "seeds": 5,
+        "sec_per_epoch": 2.8,
+        "est_hours_avg_epochs": 0.16,
+        "max_hours_100_epochs": 0.39
+      },
+      {
+        "experiment": "D: none",
+        "mode": "none",
+        "seeds": 5,
+        "sec_per_epoch": 2.51,
+        "est_hours_avg_epochs": 0.14,
+        "max_hours_100_epochs": 0.35
+      },
+      {
+        "experiment": "Ablation B (Depth L=2)",
+        "mode": "trainable",
+        "seeds": 3,
+        "sec_per_epoch": 13.24,
+        "est_hours_avg_epochs": 0.44,
+        "max_hours_100_epochs": 1.1
+      },
+      {
+        "experiment": "Ablation B (Depth L=3)",
+        "mode": "trainable",
+        "seeds": 3,
+        "sec_per_epoch": 16.68,
+        "est_hours_avg_epochs": 0.56,
+        "max_hours_100_epochs": 1.39
+      },
+      {
+        "experiment": "Ablation B (lr=1e-3)",
+        "mode": "trainable",
+        "seeds": 3,
+        "sec_per_epoch": 9.81,
+        "est_hours_avg_epochs": 0.33,
+        "max_hours_100_epochs": 0.82
+      },
+      {
+        "experiment": "Ablation B (lr=1e-1)",
+        "mode": "trainable",
+        "seeds": 3,
+        "sec_per_epoch": 9.81,
+        "est_hours_avg_epochs": 0.33,
+        "max_hours_100_epochs": 0.82
+      }
+    ]
+  }
+}
