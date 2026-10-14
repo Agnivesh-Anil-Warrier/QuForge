@@ -1,0 +1,48 @@
+{
+  "splits": {
+    "train": {
+      "total": 3318,
+      "benign_0": 2198,
+      "malignant_1": 1120,
+      "benign_ratio": 0.6624,
+      "malignant_ratio": 0.3376,
+      "classes_breakdown": {
+        "glioma": 1120,
+        "meningioma": 1116,
+        "pituitary": 1082
+      }
+    },
+    "val": {
+      "total": 830,
+      "benign_0": 550,
+      "malignant_1": 280,
+      "benign_ratio": 0.6627,
+      "malignant_ratio": 0.3373,
+      "classes_breakdown": {
+        "pituitary": 280,
+        "glioma": 280,
+        "meningioma": 270
+      }
+    },
+    "test": {
+      "total": 1074,
+      "benign_0": 693,
+      "malignant_1": 381,
+      "benign_ratio": 0.6453,
+      "malignant_ratio": 0.3547,
+      "classes_breakdown": {
+        "pituitary": 398,
+        "glioma": 381,
+        "meningioma": 295
+      }
+    }
+  },
+  "loss_weighting": {
+    "pos_weight": 1.9625,
+    "interpretation": "Positive class (Malignant) weighted 1.9625x relative to Benign",
+    "class_counts": {
+      "benign (0)": 2198,
+      "malignant (1)": 1120
+    }
+  }
+}

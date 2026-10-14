@@ -1,0 +1,33 @@
+============================================================
+QForge Dataset Summary Report (Kaggle Brain Tumor MRI)
+============================================================
+
+Binary Classification Mapping:
+  - Malignant (1): Glioma
+  - Benign (0):    Meningioma + Pituitary
+  - Excluded:      Notumor (dropped per study protocol)
+
+------------------------------------------------------------
+Split      | Total    | Benign (0)   | Malignant (1)  | Malignant Ratio
+------------------------------------------------------------
+train      | 3318     | 2198         | 1120           | 33.76%
+val        | 830      | 550          | 280            | 33.73%
+test       | 1074     | 693          | 381            | 35.47%
+------------------------------------------------------------
+
+Class Breakdown Details:
+  TRAIN Breakdown: {'glioma': 1120, 'meningioma': 1116, 'pituitary': 1082}
+  VAL Breakdown: {'pituitary': 280, 'glioma': 280, 'meningioma': 270}
+  TEST Breakdown: {'pituitary': 398, 'glioma': 381, 'meningioma': 295}
+
+Class Imbalance & Loss Weighting:
+  Training Benign (0):     2198
+  Training Malignant (1):  1120
+  BCE pos_weight:          1.9625
+  Interpretation:          Positive class (Malignant) weighted 1.9625x relative to Benign
+
+Preprocessing & Cache:
+  Image Dimension:         (28, 28) (1 channel grayscale)
+  Value Scaling:           [0.0, 1.0] float32
+  Cache Files:             X_train.npy, y_train.npy, X_val.npy, y_val.npy, X_test.npy, y_test.npy in C:\books\Quantum\qforge-qmri\data\cache
+============================================================

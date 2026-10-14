@@ -1,0 +1,1374 @@
+{
+  "initial_total_images": 5400,
+  "initial_train_images": 4200,
+  "initial_test_images": 1200,
+  "exact_md5_duplicates": 0,
+  "leakage_test_dropped_md5": 0,
+  "leakage_test_dropped_phash": 110,
+  "internal_train_dropped": 52,
+  "internal_test_dropped": 16,
+  "dropped_indices": [
+    1771,
+    1806,
+    1829,
+    1934,
+    1963,
+    1988,
+    2282,
+    2284,
+    2314,
+    2497,
+    2606,
+    2619,
+    2645,
+    2677,
+    2974,
+    3019,
+    3032,
+    3037,
+    3178,
+    3193,
+    3269,
+    3307,
+    3381,
+    3431,
+    3447,
+    3517,
+    3531,
+    3569,
+    3603,
+    3619,
+    3651,
+    3663,
+    3677,
+    3717,
+    3795,
+    3832,
+    3865,
+    3923,
+    3933,
+    3938,
+    3945,
+    3993,
+    4042,
+    4049,
+    4065,
+    4071,
+    4121,
+    4138,
+    4159,
+    4166,
+    4183,
+    4191,
+    4277,
+    4287,
+    4343,
+    4349,
+    4354,
+    4377,
+    4392,
+    4398,
+    4411,
+    4421,
+    4427,
+    4436,
+    4465,
+    4489,
+    4494,
+    4521,
+    4555,
+    4565,
+    4570,
+    4600,
+    4685,
+    4703,
+    4706,
+    4710,
+    4714,
+    4717,
+    4719,
+    4722,
+    4723,
+    4728,
+    4732,
+    4733,
+    4745,
+    4746,
+    4758,
+    4762,
+    4766,
+    4767,
+    4768,
+    4769,
+    4773,
+    4776,
+    4778,
+    4783,
+    4786,
+    4787,
+    4791,
+    4792,
+    4793,
+    4797,
+    4800,
+    4803,
+    4804,
+    4809,
+    4811,
+    4812,
+    4814,
+    4815,
+    4818,
+    4821,
+    4822,
+    4823,
+    4824,
+    4830,
+    4831,
+    4833,
+    4836,
+    4841,
+    4846,
+    4847,
+    4849,
+    4850,
+    4851,
+    4853,
+    4854,
+    4861,
+    4863,
+    4872,
+    4873,
+    4874,
+    4880,
+    4881,
+    4884,
+    4887,
+    4888,
+    4893,
+    4897,
+    4899,
+    4900,
+    4901,
+    4902,
+    4904,
+    4909,
+    4912,
+    4914,
+    4915,
+    4918,
+    4921,
+    4924,
+    4925,
+    4931,
+    4933,
+    4934,
+    4937,
+    4944,
+    4945,
+    4946,
+    4948,
+    4950,
+    4958,
+    4959,
+    4963,
+    4969,
+    4973,
+    4978,
+    4980,
+    4981,
+    4982,
+    4985,
+    4989,
+    4993,
+    4994,
+    4995,
+    4996,
+    5154,
+    5193
+  ],
+  "dropped_details": [
+    {
+      "idx": 1771,
+      "path": "Training\\meningioma\\Tr-me_1242.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "ef4efdf1a7f3fb1b9efe30ee40525500"
+    },
+    {
+      "idx": 1806,
+      "path": "Training\\meningioma\\Tr-me_1274.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "9e7c7e8d5dc30162f8c4f0c6d68aa71f"
+    },
+    {
+      "idx": 1829,
+      "path": "Training\\meningioma\\Tr-me_1295.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "9d8e2727154924c2c1f3ff8da042b850"
+    },
+    {
+      "idx": 1934,
+      "path": "Training\\meningioma\\Tr-me_219.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "832c3e0243e8fafe4313d899e233285d"
+    },
+    {
+      "idx": 1963,
+      "path": "Training\\meningioma\\Tr-me_245.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "5ac635ab3e61f1897b1e4188fdc1c3f2"
+    },
+    {
+      "idx": 1988,
+      "path": "Training\\meningioma\\Tr-me_268.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "9120f19e559d9f509aa873b5d9b46909"
+    },
+    {
+      "idx": 2282,
+      "path": "Training\\meningioma\\Tr-me_532.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "ceb4361f4ba2f0ee12470a037bc37212"
+    },
+    {
+      "idx": 2284,
+      "path": "Training\\meningioma\\Tr-me_534.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "af3a4cf5d54bd454b733bfe3d2177b4a"
+    },
+    {
+      "idx": 2314,
+      "path": "Training\\meningioma\\Tr-me_561.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "333ca271271562e025951545e76a8b0b"
+    },
+    {
+      "idx": 2497,
+      "path": "Training\\meningioma\\Tr-me_726.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "ab525628d00898aa6b1088d9c1d5a785"
+    },
+    {
+      "idx": 2606,
+      "path": "Training\\meningioma\\Tr-me_824.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "b66d2a622c461b978e51d48171ae2980"
+    },
+    {
+      "idx": 2619,
+      "path": "Training\\meningioma\\Tr-me_836.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "a501e6ea3748d3aebea8e8735268ec5b"
+    },
+    {
+      "idx": 2645,
+      "path": "Training\\meningioma\\Tr-me_86.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "af3a4cf5d54bd454b733bfe3d2177b4a"
+    },
+    {
+      "idx": 2677,
+      "path": "Training\\meningioma\\Tr-me_889.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "c3aa5bcdbe44fc74833b7bd86b8d076e"
+    },
+    {
+      "idx": 2974,
+      "path": "Training\\pituitary\\Tr-pi_1155.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "0140560cc9a91abc3e62e9e1bec6c5ea"
+    },
+    {
+      "idx": 3019,
+      "path": "Training\\pituitary\\Tr-pi_1196.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "45e8c308a42e1995239b2934f71bace3"
+    },
+    {
+      "idx": 3032,
+      "path": "Training\\pituitary\\Tr-pi_1207.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "51e083128ee310d25cab89a4b175624b"
+    },
+    {
+      "idx": 3037,
+      "path": "Training\\pituitary\\Tr-pi_1211.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "e3ba2a330b921704ecae3a47624106e3"
+    },
+    {
+      "idx": 3178,
+      "path": "Training\\pituitary\\Tr-pi_1339.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "e3ba2a330b921704ecae3a47624106e3"
+    },
+    {
+      "idx": 3193,
+      "path": "Training\\pituitary\\Tr-pi_1352.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "ca3ad7e6cd4825a0d5cff84d11757bed"
+    },
+    {
+      "idx": 3269,
+      "path": "Training\\pituitary\\Tr-pi_160.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "e3ba2a330b921704ecae3a47624106e3"
+    },
+    {
+      "idx": 3307,
+      "path": "Training\\pituitary\\Tr-pi_195.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "58e47a3e12d09d40c54a8672b481c175"
+    },
+    {
+      "idx": 3381,
+      "path": "Training\\pituitary\\Tr-pi_261.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "b6276f725b9a3661ea24de2d01adf881"
+    },
+    {
+      "idx": 3431,
+      "path": "Training\\pituitary\\Tr-pi_306.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "008c98403b057fc344bf0a9f2e7de6c2"
+    },
+    {
+      "idx": 3447,
+      "path": "Training\\pituitary\\Tr-pi_320.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "406052e058bc64ffed1f9c9e2b65687c"
+    },
+    {
+      "idx": 3517,
+      "path": "Training\\pituitary\\Tr-pi_384.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "6c9fee8d2f733b06b500a0ab9d0c3fd3"
+    },
+    {
+      "idx": 3531,
+      "path": "Training\\pituitary\\Tr-pi_397.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "00748c6aaa5c199b07f8fa7140fc19c1"
+    },
+    {
+      "idx": 3569,
+      "path": "Training\\pituitary\\Tr-pi_430.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "05c3caea567ffd77caf79c12654b87e5"
+    },
+    {
+      "idx": 3603,
+      "path": "Training\\pituitary\\Tr-pi_461.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "72767d52cc2aad37a5cfb24ff23bb06a"
+    },
+    {
+      "idx": 3619,
+      "path": "Training\\pituitary\\Tr-pi_476.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "4e5a8e1b13dce709484145eb0ac3ce70"
+    },
+    {
+      "idx": 3651,
+      "path": "Training\\pituitary\\Tr-pi_504.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "667db113b8954435f1ceab3122f5b296"
+    },
+    {
+      "idx": 3663,
+      "path": "Training\\pituitary\\Tr-pi_515.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "7aace426ed99cbee63e3f7fb55465590"
+    },
+    {
+      "idx": 3677,
+      "path": "Training\\pituitary\\Tr-pi_528.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "72767d52cc2aad37a5cfb24ff23bb06a"
+    },
+    {
+      "idx": 3717,
+      "path": "Training\\pituitary\\Tr-pi_564.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "690f2c41084c1b8727b1c51812153004"
+    },
+    {
+      "idx": 3795,
+      "path": "Training\\pituitary\\Tr-pi_634.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "37d9b2e8f32519fba8e67ef120bb343e"
+    },
+    {
+      "idx": 3832,
+      "path": "Training\\pituitary\\Tr-pi_668.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "3665fdf79547807d98e5053427a45a98"
+    },
+    {
+      "idx": 3865,
+      "path": "Training\\pituitary\\Tr-pi_698.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "b7f875bedfac719015cc81bc888151b3"
+    },
+    {
+      "idx": 3923,
+      "path": "Training\\pituitary\\Tr-pi_75.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "9ac2bb858e51e57e9652feba3728004e"
+    },
+    {
+      "idx": 3933,
+      "path": "Training\\pituitary\\Tr-pi_759.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "dcd64c030193c4b3a8a69460e4906807"
+    },
+    {
+      "idx": 3938,
+      "path": "Training\\pituitary\\Tr-pi_763.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "680022005ea0acdf17c86efc8f81b931"
+    },
+    {
+      "idx": 3945,
+      "path": "Training\\pituitary\\Tr-pi_77.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "dcd64c030193c4b3a8a69460e4906807"
+    },
+    {
+      "idx": 3993,
+      "path": "Training\\pituitary\\Tr-pi_812.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "99e0890275f773a6baa17d02fc0bdefb"
+    },
+    {
+      "idx": 4042,
+      "path": "Training\\pituitary\\Tr-pi_857.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "37467cc9d034a9213e185a0790a0a6b3"
+    },
+    {
+      "idx": 4049,
+      "path": "Training\\pituitary\\Tr-pi_863.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "6c9fee8d2f733b06b500a0ab9d0c3fd3"
+    },
+    {
+      "idx": 4065,
+      "path": "Training\\pituitary\\Tr-pi_878.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "37f42c6a8b3782e3fe33c00e570ad7fe"
+    },
+    {
+      "idx": 4071,
+      "path": "Training\\pituitary\\Tr-pi_883.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "05c3caea567ffd77caf79c12654b87e5"
+    },
+    {
+      "idx": 4121,
+      "path": "Training\\pituitary\\Tr-pi_928.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "37d9b2e8f32519fba8e67ef120bb343e"
+    },
+    {
+      "idx": 4138,
+      "path": "Training\\pituitary\\Tr-pi_943.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "45e8c308a42e1995239b2934f71bace3"
+    },
+    {
+      "idx": 4159,
+      "path": "Training\\pituitary\\Tr-pi_962.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "15cf7ebeefbbb7e57abf759acc3af7ef"
+    },
+    {
+      "idx": 4166,
+      "path": "Training\\pituitary\\Tr-pi_969.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "b7f875bedfac719015cc81bc888151b3"
+    },
+    {
+      "idx": 4183,
+      "path": "Training\\pituitary\\Tr-pi_984.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "b612aa0d702020c3dd896f4294000a02"
+    },
+    {
+      "idx": 4191,
+      "path": "Training\\pituitary\\Tr-pi_991.jpg",
+      "reason": "Internal Training duplicate (exact MD5 collision)",
+      "md5": "51e083128ee310d25cab89a4b175624b"
+    },
+    {
+      "idx": 4287,
+      "path": "Testing\\glioma\\Te-gl_178.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "4dc9e3b56a99b7455036ca9247c82817"
+    },
+    {
+      "idx": 4343,
+      "path": "Testing\\glioma\\Te-gl_228.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "270039de9ae75d069b6360f6b23c0b8b"
+    },
+    {
+      "idx": 4354,
+      "path": "Testing\\glioma\\Te-gl_238.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "cfe978f4870cfc42980c522bf749de92"
+    },
+    {
+      "idx": 4377,
+      "path": "Testing\\glioma\\Te-gl_259.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "716882598588e4671a4cb50eadfc5b88"
+    },
+    {
+      "idx": 4392,
+      "path": "Testing\\glioma\\Te-gl_272.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "845ff201c07a82cd2356769078f83eae"
+    },
+    {
+      "idx": 4398,
+      "path": "Testing\\glioma\\Te-gl_278.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "34d3fec0def3da3459c5f1596f059aef"
+    },
+    {
+      "idx": 4411,
+      "path": "Testing\\glioma\\Te-gl_29.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "caab5859588132c3ebb1fbbfa853e944"
+    },
+    {
+      "idx": 4427,
+      "path": "Testing\\glioma\\Te-gl_303.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "ee6e22476c4f669b43d82fa9f5ab2abf"
+    },
+    {
+      "idx": 4465,
+      "path": "Testing\\glioma\\Te-gl_338.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "845ff201c07a82cd2356769078f83eae"
+    },
+    {
+      "idx": 4489,
+      "path": "Testing\\glioma\\Te-gl_36.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "61388b0e333fe750b3bd0c7912846625"
+    },
+    {
+      "idx": 4494,
+      "path": "Testing\\glioma\\Te-gl_364.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "f998e6cf91b2d4ae9d464510ba184a4f"
+    },
+    {
+      "idx": 4521,
+      "path": "Testing\\glioma\\Te-gl_389.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "252314e70476470af7835cdfd70bac92"
+    },
+    {
+      "idx": 4555,
+      "path": "Testing\\glioma\\Te-gl_59.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "557074c0f2215c6453fd61461aafc59a"
+    },
+    {
+      "idx": 4570,
+      "path": "Testing\\glioma\\Te-gl_72.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "7aec05f6498b98fca1451348adec402c"
+    },
+    {
+      "idx": 4812,
+      "path": "Testing\\meningioma\\Te-me_198.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "784114ee48882bf1b8b7b92a559da83d"
+    },
+    {
+      "idx": 4854,
+      "path": "Testing\\meningioma\\Te-me_235.jpg",
+      "reason": "Internal Testing duplicate (exact MD5 collision)",
+      "md5": "698ac9e379771e54f2dd985b1d58f8dd"
+    },
+    {
+      "idx": 4277,
+      "path": "Testing\\glioma\\Te-gl_169.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\glioma\\Tr-gl_1271.jpg",
+      "phash": "936c2e7168b47372"
+    },
+    {
+      "idx": 4349,
+      "path": "Testing\\glioma\\Te-gl_233.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\glioma\\Tr-gl_420.jpg",
+      "phash": "96493e2d3966387c"
+    },
+    {
+      "idx": 4421,
+      "path": "Testing\\glioma\\Te-gl_299.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\glioma\\Tr-gl_361.jpg",
+      "phash": "96493e27396cf035"
+    },
+    {
+      "idx": 4436,
+      "path": "Testing\\glioma\\Te-gl_311.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\glioma\\Tr-gl_1057.jpg",
+      "phash": "c6493f0f38e53478"
+    },
+    {
+      "idx": 4565,
+      "path": "Testing\\glioma\\Te-gl_68.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_458.jpg",
+      "phash": "901a7f616de436a6"
+    },
+    {
+      "idx": 4600,
+      "path": "Testing\\meningioma\\Te-aug-me_1.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1285.jpg",
+      "phash": "95947aca616b632d"
+    },
+    {
+      "idx": 4685,
+      "path": "Testing\\meningioma\\Te-aug-me_83.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_377.jpg",
+      "phash": "915e3e706bf06561"
+    },
+    {
+      "idx": 4703,
+      "path": "Testing\\meningioma\\Te-me_1.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_36.jpg",
+      "phash": "d14b3f6c24646ef0"
+    },
+    {
+      "idx": 4706,
+      "path": "Testing\\meningioma\\Te-me_101.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_404.jpg",
+      "phash": "91d91b216f656ce4"
+    },
+    {
+      "idx": 4710,
+      "path": "Testing\\meningioma\\Te-me_105.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_530.jpg",
+      "phash": "907b6be53c9668c2"
+    },
+    {
+      "idx": 4714,
+      "path": "Testing\\meningioma\\Te-me_109.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_877.jpg",
+      "phash": "d10b466c9a9fdab0"
+    },
+    {
+      "idx": 4717,
+      "path": "Testing\\meningioma\\Te-me_111.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_865.jpg",
+      "phash": "811e63e81eb50fe9"
+    },
+    {
+      "idx": 4719,
+      "path": "Testing\\meningioma\\Te-me_113.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_962.jpg",
+      "phash": "91d141921e2f7e6d"
+    },
+    {
+      "idx": 4722,
+      "path": "Testing\\meningioma\\Te-me_116.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_339.jpg",
+      "phash": "c4736ead39cc3984"
+    },
+    {
+      "idx": 4723,
+      "path": "Testing\\meningioma\\Te-me_117.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_846.jpg",
+      "phash": "c1c33e3866c33b69"
+    },
+    {
+      "idx": 4728,
+      "path": "Testing\\meningioma\\Te-me_121.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_706.jpg",
+      "phash": "c13e1ee16a3479e1"
+    },
+    {
+      "idx": 4732,
+      "path": "Testing\\meningioma\\Te-me_125.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1282.jpg",
+      "phash": "c3b82fc218e6659b"
+    },
+    {
+      "idx": 4733,
+      "path": "Testing\\meningioma\\Te-me_126.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_845.jpg",
+      "phash": "8ffc544c0ef2c313"
+    },
+    {
+      "idx": 4745,
+      "path": "Testing\\meningioma\\Te-me_137.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_666.jpg",
+      "phash": "91c21e976ecb4b8c"
+    },
+    {
+      "idx": 4746,
+      "path": "Testing\\meningioma\\Te-me_138.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_557.jpg",
+      "phash": "950a76796ae06b35"
+    },
+    {
+      "idx": 4758,
+      "path": "Testing\\meningioma\\Te-me_149.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_960.jpg",
+      "phash": "9b986c6666499b95"
+    },
+    {
+      "idx": 4762,
+      "path": "Testing\\meningioma\\Te-me_152.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_586.jpg",
+      "phash": "c23b2de074e336cc"
+    },
+    {
+      "idx": 4766,
+      "path": "Testing\\meningioma\\Te-me_156.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_957.jpg",
+      "phash": "8b5a746e09ba6678"
+    },
+    {
+      "idx": 4767,
+      "path": "Testing\\meningioma\\Te-me_157.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_238.jpg",
+      "phash": "d11b136e646e6cb4"
+    },
+    {
+      "idx": 4768,
+      "path": "Testing\\meningioma\\Te-me_158.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1194.jpg",
+      "phash": "926d459369a4b36b"
+    },
+    {
+      "idx": 4769,
+      "path": "Testing\\meningioma\\Te-me_159.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1122.jpg",
+      "phash": "c0643b6f3cb070cf"
+    },
+    {
+      "idx": 4773,
+      "path": "Testing\\meningioma\\Te-me_162.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_758.jpg",
+      "phash": "910666bb9acc6fb0"
+    },
+    {
+      "idx": 4776,
+      "path": "Testing\\meningioma\\Te-me_165.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1112.jpg",
+      "phash": "c50a1fdd2a1e2af8"
+    },
+    {
+      "idx": 4778,
+      "path": "Testing\\meningioma\\Te-me_167.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_239.jpg",
+      "phash": "80375f693ab07c65"
+    },
+    {
+      "idx": 4783,
+      "path": "Testing\\meningioma\\Te-me_171.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_453.jpg",
+      "phash": "c439594f3a6aca39"
+    },
+    {
+      "idx": 4786,
+      "path": "Testing\\meningioma\\Te-me_174.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_110.jpg",
+      "phash": "811e63e81eb50bf9"
+    },
+    {
+      "idx": 4787,
+      "path": "Testing\\meningioma\\Te-me_175.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_737.jpg",
+      "phash": "c04fc00b1b3f3fa5"
+    },
+    {
+      "idx": 4791,
+      "path": "Testing\\meningioma\\Te-me_179.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_432.jpg",
+      "phash": "c50c115b4e3f7ce2"
+    },
+    {
+      "idx": 4792,
+      "path": "Testing\\meningioma\\Te-me_18.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_331.jpg",
+      "phash": "844e46ef3b313b31"
+    },
+    {
+      "idx": 4793,
+      "path": "Testing\\meningioma\\Te-me_180.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_616.jpg",
+      "phash": "954a4a97164f7f18"
+    },
+    {
+      "idx": 4797,
+      "path": "Testing\\meningioma\\Te-me_184.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_19.jpg",
+      "phash": "c7441b3b4cc36d71"
+    },
+    {
+      "idx": 4800,
+      "path": "Testing\\meningioma\\Te-me_187.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_52.jpg",
+      "phash": "91b34e4c3d9d6ce0"
+    },
+    {
+      "idx": 4803,
+      "path": "Testing\\meningioma\\Te-me_19.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_771.jpg",
+      "phash": "c4270ff80fc46cc7"
+    },
+    {
+      "idx": 4804,
+      "path": "Testing\\meningioma\\Te-me_190.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_472.jpg",
+      "phash": "90764f6932cd6d32"
+    },
+    {
+      "idx": 4809,
+      "path": "Testing\\meningioma\\Te-me_195.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_3.jpg",
+      "phash": "d57b404730cbc38f"
+    },
+    {
+      "idx": 4811,
+      "path": "Testing\\meningioma\\Te-me_197.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_437.jpg",
+      "phash": "953b6a3c25e4708f"
+    },
+    {
+      "idx": 4814,
+      "path": "Testing\\meningioma\\Te-me_2.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_543.jpg",
+      "phash": "c0e2193dc7e25d39"
+    },
+    {
+      "idx": 4815,
+      "path": "Testing\\meningioma\\Te-me_20.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_373.jpg",
+      "phash": "815a5f28669d6997"
+    },
+    {
+      "idx": 4818,
+      "path": "Testing\\meningioma\\Te-me_202.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_465.jpg",
+      "phash": "c23f2df0700f36d8"
+    },
+    {
+      "idx": 4821,
+      "path": "Testing\\meningioma\\Te-me_205.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_661.jpg",
+      "phash": "954a473bb26d6893"
+    },
+    {
+      "idx": 4822,
+      "path": "Testing\\meningioma\\Te-me_206.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_753.jpg",
+      "phash": "a40b5b951f6ad239"
+    },
+    {
+      "idx": 4823,
+      "path": "Testing\\meningioma\\Te-me_207.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1262.jpg",
+      "phash": "856d47636e3c1eb0"
+    },
+    {
+      "idx": 4824,
+      "path": "Testing\\meningioma\\Te-me_208.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_465.jpg",
+      "phash": "c23f2df0700f36d8"
+    },
+    {
+      "idx": 4830,
+      "path": "Testing\\meningioma\\Te-me_213.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_489.jpg",
+      "phash": "97c24a6d3fbc64c0"
+    },
+    {
+      "idx": 4831,
+      "path": "Testing\\meningioma\\Te-me_214.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_639.jpg",
+      "phash": "902d4bb26dda3dc2"
+    },
+    {
+      "idx": 4833,
+      "path": "Testing\\meningioma\\Te-me_216.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_330.jpg",
+      "phash": "91364f6938b86cc7"
+    },
+    {
+      "idx": 4836,
+      "path": "Testing\\meningioma\\Te-me_219.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_920.jpg",
+      "phash": "959a454e169b6b8b"
+    },
+    {
+      "idx": 4841,
+      "path": "Testing\\meningioma\\Te-me_223.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_965.jpg",
+      "phash": "c48e4e1f7b393138"
+    },
+    {
+      "idx": 4846,
+      "path": "Testing\\meningioma\\Te-me_228.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_497.jpg",
+      "phash": "90524f9b3b253cda"
+    },
+    {
+      "idx": 4847,
+      "path": "Testing\\meningioma\\Te-me_229.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_799.jpg",
+      "phash": "c73c1ac93ce1633c"
+    },
+    {
+      "idx": 4849,
+      "path": "Testing\\meningioma\\Te-me_230.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_238.jpg",
+      "phash": "d11b136e646e6cb4"
+    },
+    {
+      "idx": 4850,
+      "path": "Testing\\meningioma\\Te-me_231.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_158.jpg",
+      "phash": "970f789c4b386dc1"
+    },
+    {
+      "idx": 4851,
+      "path": "Testing\\meningioma\\Te-me_232.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_205.jpg",
+      "phash": "d27b6fe53c922888"
+    },
+    {
+      "idx": 4853,
+      "path": "Testing\\meningioma\\Te-me_234.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_760.jpg",
+      "phash": "c5270f7c1be44ac6"
+    },
+    {
+      "idx": 4861,
+      "path": "Testing\\meningioma\\Te-me_241.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1146.jpg",
+      "phash": "c4cc4ee53b333992"
+    },
+    {
+      "idx": 4863,
+      "path": "Testing\\meningioma\\Te-me_243.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_880.jpg",
+      "phash": "923a6de4369bca2c"
+    },
+    {
+      "idx": 4872,
+      "path": "Testing\\meningioma\\Te-me_251.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_450.jpg",
+      "phash": "c5cf3a382ec12d87"
+    },
+    {
+      "idx": 4873,
+      "path": "Testing\\meningioma\\Te-me_252.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_543.jpg",
+      "phash": "c0e2193dc7e25d39"
+    },
+    {
+      "idx": 4874,
+      "path": "Testing\\meningioma\\Te-me_253.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_776.jpg",
+      "phash": "c11f156a3f3e4178"
+    },
+    {
+      "idx": 4880,
+      "path": "Testing\\meningioma\\Te-me_259.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_553.jpg",
+      "phash": "841b57797a9668d2"
+    },
+    {
+      "idx": 4881,
+      "path": "Testing\\meningioma\\Te-me_26.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_99.jpg",
+      "phash": "c4ce1ab14bc5cc9e"
+    },
+    {
+      "idx": 4884,
+      "path": "Testing\\meningioma\\Te-me_262.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_639.jpg",
+      "phash": "902d4bb26dda3dc2"
+    },
+    {
+      "idx": 4887,
+      "path": "Testing\\meningioma\\Te-me_265.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_126.jpg",
+      "phash": "922e6de13493666e"
+    },
+    {
+      "idx": 4888,
+      "path": "Testing\\meningioma\\Te-me_266.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1249.jpg",
+      "phash": "844e5fba5ab26887"
+    },
+    {
+      "idx": 4893,
+      "path": "Testing\\meningioma\\Te-me_270.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1057.jpg",
+      "phash": "c46c0f767b633891"
+    },
+    {
+      "idx": 4897,
+      "path": "Testing\\meningioma\\Te-me_274.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1163.jpg",
+      "phash": "c6da2f8d343761b0"
+    },
+    {
+      "idx": 4899,
+      "path": "Testing\\meningioma\\Te-me_276.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_167.jpg",
+      "phash": "85181f7f62376e21"
+    },
+    {
+      "idx": 4900,
+      "path": "Testing\\meningioma\\Te-me_277.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_50.jpg",
+      "phash": "954a4a92164f3bdb"
+    },
+    {
+      "idx": 4901,
+      "path": "Testing\\meningioma\\Te-me_278.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_479.jpg",
+      "phash": "945a4b693e357865"
+    },
+    {
+      "idx": 4902,
+      "path": "Testing\\meningioma\\Te-me_279.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_897.jpg",
+      "phash": "c26f2fa42c3364ce"
+    },
+    {
+      "idx": 4904,
+      "path": "Testing\\meningioma\\Te-me_280.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_954.jpg",
+      "phash": "c6cc6e386133317b"
+    },
+    {
+      "idx": 4909,
+      "path": "Testing\\meningioma\\Te-me_285.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1289.jpg",
+      "phash": "d4cc4a3b333919e9"
+    },
+    {
+      "idx": 4912,
+      "path": "Testing\\meningioma\\Te-me_288.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_980.jpg",
+      "phash": "956e1e7863623963"
+    },
+    {
+      "idx": 4914,
+      "path": "Testing\\meningioma\\Te-me_29.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_684.jpg",
+      "phash": "c5c74a3d3a383b38"
+    },
+    {
+      "idx": 4915,
+      "path": "Testing\\meningioma\\Te-me_290.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_597.jpg",
+      "phash": "d34b2ea438e56593"
+    },
+    {
+      "idx": 4918,
+      "path": "Testing\\meningioma\\Te-me_293.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_799.jpg",
+      "phash": "c73c1ac93ce1633c"
+    },
+    {
+      "idx": 4921,
+      "path": "Testing\\meningioma\\Te-me_296.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_145.jpg",
+      "phash": "d24d2f60747ca476"
+    },
+    {
+      "idx": 4924,
+      "path": "Testing\\meningioma\\Te-me_30.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_109.jpg",
+      "phash": "801f5ffa29687d21"
+    },
+    {
+      "idx": 4925,
+      "path": "Testing\\meningioma\\Te-me_31.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1166.jpg",
+      "phash": "871e3ae168b469cd"
+    },
+    {
+      "idx": 4931,
+      "path": "Testing\\meningioma\\Te-me_37.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1290.jpg",
+      "phash": "811f5e722e6b6c19"
+    },
+    {
+      "idx": 4933,
+      "path": "Testing\\meningioma\\Te-me_39.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1225.jpg",
+      "phash": "815a5f28669d6a97"
+    },
+    {
+      "idx": 4934,
+      "path": "Testing\\meningioma\\Te-me_4.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1286.jpg",
+      "phash": "e740309b63c61f67"
+    },
+    {
+      "idx": 4937,
+      "path": "Testing\\meningioma\\Te-me_42.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1110.jpg",
+      "phash": "902d4bb26dda39c3"
+    },
+    {
+      "idx": 4944,
+      "path": "Testing\\meningioma\\Te-me_49.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_424.jpg",
+      "phash": "9492166b794e6ae9"
+    },
+    {
+      "idx": 4945,
+      "path": "Testing\\meningioma\\Te-me_5.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1083.jpg",
+      "phash": "815e5f2a70e957a1"
+    },
+    {
+      "idx": 4946,
+      "path": "Testing\\meningioma\\Te-me_50.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_714.jpg",
+      "phash": "901a7f616de532a6"
+    },
+    {
+      "idx": 4948,
+      "path": "Testing\\meningioma\\Te-me_52.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_154.jpg",
+      "phash": "8ffc544c16d2c31e"
+    },
+    {
+      "idx": 4950,
+      "path": "Testing\\meningioma\\Te-me_54.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_200.jpg",
+      "phash": "96c64b6d3cb861c5"
+    },
+    {
+      "idx": 4958,
+      "path": "Testing\\meningioma\\Te-me_61.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_714.jpg",
+      "phash": "901a7f616de532a6"
+    },
+    {
+      "idx": 4959,
+      "path": "Testing\\meningioma\\Te-me_62.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_678.jpg",
+      "phash": "c4ca3b692fa738b0"
+    },
+    {
+      "idx": 4963,
+      "path": "Testing\\meningioma\\Te-me_66.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1198.jpg",
+      "phash": "c5372acc33f04df0"
+    },
+    {
+      "idx": 4969,
+      "path": "Testing\\meningioma\\Te-me_71.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1168.jpg",
+      "phash": "c53910c62f656f87"
+    },
+    {
+      "idx": 4973,
+      "path": "Testing\\meningioma\\Te-me_75.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_717.jpg",
+      "phash": "d0d90ba16b676566"
+    },
+    {
+      "idx": 4978,
+      "path": "Testing\\meningioma\\Te-me_8.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_486.jpg",
+      "phash": "947a4b693e257865"
+    },
+    {
+      "idx": 4980,
+      "path": "Testing\\meningioma\\Te-me_81.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_740.jpg",
+      "phash": "d50b1b9b2ae46ce4"
+    },
+    {
+      "idx": 4981,
+      "path": "Testing\\meningioma\\Te-me_82.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_583.jpg",
+      "phash": "9b6c6c933166c399"
+    },
+    {
+      "idx": 4982,
+      "path": "Testing\\meningioma\\Te-me_83.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_905.jpg",
+      "phash": "81e0566f3d257e34"
+    },
+    {
+      "idx": 4985,
+      "path": "Testing\\meningioma\\Te-me_86.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1121.jpg",
+      "phash": "c51b1f622e3669f0"
+    },
+    {
+      "idx": 4989,
+      "path": "Testing\\meningioma\\Te-me_9.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_715.jpg",
+      "phash": "81d0175bb22ee66e"
+    },
+    {
+      "idx": 4993,
+      "path": "Testing\\meningioma\\Te-me_93.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_131.jpg",
+      "phash": "d4690a1e6ff43361"
+    },
+    {
+      "idx": 4994,
+      "path": "Testing\\meningioma\\Te-me_94.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_946.jpg",
+      "phash": "c7c33a386ac33939"
+    },
+    {
+      "idx": 4995,
+      "path": "Testing\\meningioma\\Te-me_95.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_1091.jpg",
+      "phash": "811e1fe87aa53ac5"
+    },
+    {
+      "idx": 4996,
+      "path": "Testing\\meningioma\\Te-me_96.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\meningioma\\Tr-me_458.jpg",
+      "phash": "901a7f616de436a6"
+    },
+    {
+      "idx": 5154,
+      "path": "Testing\\pituitary\\Te-pi_238.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\pituitary\\Tr-pi_909.jpg",
+      "phash": "d5db02a84f834f87"
+    },
+    {
+      "idx": 5193,
+      "path": "Testing\\pituitary\\Te-pi_273.jpg",
+      "reason": "Test-to-Train perceptual hash collision (dist=0)",
+      "matching_train_path": "Training\\pituitary\\Tr-pi_996.jpg",
+      "phash": "950a7e792ce121e7"
+    }
+  ],
+  "total_dropped": 178,
+  "final_total_images": 5222,
+  "final_train_images": 4148,
+  "final_test_images": 1074
+}

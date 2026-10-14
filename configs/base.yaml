@@ -1,7 +1,7 @@
 # Base configuration for QForge Hybrid QCQ-CNN MRI Classifier
 
 dataset:
-  raw_dir: "data/raw"
+  raw_dir: "archive"
   cache_dir: "data/cache"
   splits_dir: "data/splits"
   image_size: [28, 28]
