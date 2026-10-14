@@ -1,0 +1,28 @@
+{
+  "experiment": "model_A_frozen_seed45",
+  "filter_mode": "frozen_random",
+  "filter_depth": 1,
+  "seed": 45,
+  "best_val_acc": 0.9373493975903614,
+  "test_metrics": {
+    "accuracy": 0.8677839851024208,
+    "balanced_accuracy": 0.8408267148424629,
+    "precision": 0.8610271903323263,
+    "recall": 0.7480314960629921,
+    "f1": 0.800561797752809,
+    "roc_auc": 0.8787310677074457,
+    "confusion_matrix": [
+      [
+        647,
+        46
+      ],
+      [
+        96,
+        285
+      ]
+    ],
+    "loss": 0.6874725325744134
+  },
+  "final_parameter_drift": 0.0,
+  "total_epochs_trained": 46
+}

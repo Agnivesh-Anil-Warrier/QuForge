@@ -1,0 +1,52 @@
+dataset:
+  cache_dir: data/cache
+  class_names:
+    '0': Benign
+    '1': Malignant
+  grayscale: true
+  image_size:
+  - 28
+  - 28
+  label_mapping:
+    glioma: 1
+    meningioma: 0
+    notumor: null
+    pituitary: 0
+  normalize_range:
+  - 0.0
+  - 1.0
+  raw_dir: archive
+  split_seed: 42
+  splits_dir: data/splits
+  train_val_ratio:
+  - 0.8
+  - 0.2
+experiment_name: model_A_frozen_seed44
+model:
+  classical_backbone:
+    conv1_channels: 16
+    conv2_channels: 32
+    dense_hidden: 64
+    out_features: 2
+  filter_depth: 1
+  filter_mode: frozen_random
+  vqc_head:
+    n_qubits: 2
+    reps: 2
+system:
+  device: cpu
+  seed: 44
+  torch_threads: null
+training:
+  batch_size: 32
+  checkpoint_dir: results/checkpoints
+  early_stopping_patience: 15
+  loss_type: bce_with_logits
+  lr_backbone: 0.001
+  lr_quantum_filter: 0.01
+  max_epochs: 100
+  num_workers: 0
+  optimizer: adam
+  pos_weight: 1.9625
+  save_every_epoch: true
+  weight_decay: 0.0001

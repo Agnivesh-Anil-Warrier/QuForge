@@ -93,12 +93,13 @@ Across independent seeds on the deduplicated Kaggle Brain Tumor MRI benchmark:
 | Model Architecture | Seeds | Test Accuracy | Balanced Acc | F1 Score | ROC-AUC | Parameter Drift | Test Loss |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Model A (`frozen_random`)** | 5 | **85.75% ± 1.66%** | **82.34% ± 2.49%** | **77.77% ± 3.44%** | **87.33% ± 1.94%** | $0.0000 \pm 0.0000$ rad | $0.7609 \pm 0.1024$ |
-| **Model B (`trainable`)** | 3 | **84.98% ± 1.43%** | **81.94% ± 1.53%** | **77.15% ± 2.09%** | **87.48% ± 1.54%** | $1.6418 \pm 0.4703$ rad | $0.7413 \pm 0.0030$ |
+| **Model B (`trainable`)** | 5 | **85.36% ± 1.14%** | **82.22% ± 1.17%** | **77.58% ± 1.61%** | **87.34% ± 1.11%** | **1.8286 ± 0.9318** rad | $0.7007 \pm 0.0557$ |
 
 ### Scientific Verdict (Paired Statistical Significance)
-- **Accuracy Difference**: $\Delta = -0.06\%$, $t = -0.210$, $p = 0.853$ (two-tailed paired $t$-test).
-- **ROC-AUC Difference**: $\Delta = +1.21\%$, $t = 8.893$, $p = 0.012$ (statistically positive AUC boost).
-- **Interpretation**: While trainable quantum filters display strong parameter plasticity ($||\theta - \theta_0||_2 \approx 1.64\text{ rad}$) without vanishing gradients, overall binary diagnostic accuracy is statistically indistinguishable from a frozen random filter. The frozen pseudo-random quantum circuit acts as an effective, zero-compute non-linear reservoir projector.
+- **Accuracy Difference**: $\Delta = -0.39\%$, $t = -1.454$, $p = 0.220$ (two-tailed paired $t$-test across all 5 matched seeds).
+- **ROC-AUC Difference**: $\Delta = +0.004\%$, $p = 0.997$ (comparable ranking across thresholds).
+- **Test Loss**: Model B achieves lower cross-entropy test loss ($0.7007$ vs. $0.7609$, $\Delta = -0.060$).
+- **Interpretation**: While trainable quantum filters display strong parameter plasticity ($||\theta - \theta_0||_2 \approx 1.83\text{ rad}$) without vanishing gradients, overall binary diagnostic accuracy is statistically indistinguishable from a frozen random filter. The frozen pseudo-random quantum circuit acts as an effective, zero-compute non-linear reservoir projector.
 
 ---
 

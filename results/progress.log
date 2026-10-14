@@ -1,0 +1,46 @@
+[2026-10-14 17:05:12] ===========================================================================
+[2026-10-14 17:05:12] QForge Phase 5: Commencing Experiment Grid Execution (32 total runs)
+[2026-10-14 17:05:12] Main Seeds: [42, 43, 44, 45, 46] | Ablation Seeds: [42, 43, 44]
+[2026-10-14 17:05:12] ===========================================================================
+[2026-10-14 17:05:12] [1/32] STARTING: model_A_frozen_seed42 | Mode: frozen_random | Seed: 42 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:12:44] [1/32] COMPLETED: model_A_frozen_seed42 in 451.4s (65 epochs) | Val Acc: 0.9277 | Test Acc: 0.8641 | F1: 0.7920 | AUC: 0.8660 | Drift: 0.000000 | Est. Time Left: 3.89h
+[2026-10-14 17:12:44] ---------------------------------------------------------------------------
+[2026-10-14 17:12:44] [2/32] STARTING: model_A_frozen_seed43 | Mode: frozen_random | Seed: 43 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:19:10] [2/32] COMPLETED: model_A_frozen_seed43 in 386.2s (56 epochs) | Val Acc: 0.9289 | Test Acc: 0.8585 | F1: 0.7797 | AUC: 0.8755 | Drift: 0.000000 | Est. Time Left: 3.49h
+[2026-10-14 17:19:10] ---------------------------------------------------------------------------
+[2026-10-14 17:19:10] [3/32] STARTING: model_A_frozen_seed44 | Mode: frozen_random | Seed: 44 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:22:30] [3/32] COMPLETED: model_A_frozen_seed44 in 200.0s (29 epochs) | Val Acc: 0.9169 | Test Acc: 0.8287 | F1: 0.7178 | AUC: 0.8466 | Drift: 0.000000 | Est. Time Left: 2.79h
+[2026-10-14 17:22:30] ---------------------------------------------------------------------------
+[2026-10-14 17:22:30] [4/32] STARTING: model_A_frozen_seed45 | Mode: frozen_random | Seed: 45 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:27:43] [4/32] COMPLETED: model_A_frozen_seed45 in 313.4s (46 epochs) | Val Acc: 0.9373 | Test Acc: 0.8678 | F1: 0.8006 | AUC: 0.8787 | Drift: 0.000000 | Est. Time Left: 2.63h
+[2026-10-14 17:27:43] ---------------------------------------------------------------------------
+[2026-10-14 17:27:43] [5/32] STARTING: model_A_frozen_seed46 | Mode: frozen_random | Seed: 46 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:33:03] [5/32] COMPLETED: model_A_frozen_seed46 in 320.0s (47 epochs) | Val Acc: 0.9253 | Test Acc: 0.8687 | F1: 0.7983 | AUC: 0.8999 | Drift: 0.000000 | Est. Time Left: 2.51h
+[2026-10-14 17:33:03] ---------------------------------------------------------------------------
+[2026-10-14 17:33:03] [6/32] STARTING: model_B_trainable_seed42 | Mode: trainable | Seed: 42 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:41:29] [6/32] COMPLETED: model_B_trainable_seed42 in 505.6s (52 epochs) | Val Acc: 0.9265 | Test Acc: 0.8585 | F1: 0.7889 | AUC: 0.8808 | Drift: 1.373339 | Est. Time Left: 2.62h
+[2026-10-14 17:41:29] ---------------------------------------------------------------------------
+[2026-10-14 17:41:29] [7/32] STARTING: model_B_trainable_seed43 | Mode: trainable | Seed: 43 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:48:47] ===========================================================================
+[2026-10-14 17:48:47] QForge Phase 5: Commencing Experiment Grid Execution (32 total runs)
+[2026-10-14 17:48:47] Main Seeds: [42, 43, 44, 45, 46] | Ablation Seeds: [42, 43, 44]
+[2026-10-14 17:48:47] ===========================================================================
+[2026-10-14 17:48:47] [1/32] SKIPPING (Already completed): model_A_frozen_seed42
+[2026-10-14 17:48:47] [2/32] SKIPPING (Already completed): model_A_frozen_seed43
+[2026-10-14 17:48:47] [3/32] SKIPPING (Already completed): model_A_frozen_seed44
+[2026-10-14 17:48:47] [4/32] SKIPPING (Already completed): model_A_frozen_seed45
+[2026-10-14 17:48:47] [5/32] SKIPPING (Already completed): model_A_frozen_seed46
+[2026-10-14 17:48:47] [6/32] SKIPPING (Already completed): model_B_trainable_seed42
+[2026-10-14 17:48:47] [7/32] STARTING: model_B_trainable_seed43 | Mode: trainable | Seed: 43 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 17:55:39] [7/32] COMPLETED: model_B_trainable_seed43 in 411.3s (46 epochs) | Val Acc: 0.9241 | Test Acc: 0.8575 | F1: 0.7773 | AUC: 0.8863 | Drift: 1.367090 | Est. Time Left: 2.86h
+[2026-10-14 17:55:39] ---------------------------------------------------------------------------
+[2026-10-14 17:55:39] [8/32] STARTING: model_B_trainable_seed44 | Mode: trainable | Seed: 44 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:02:07] [8/32] COMPLETED: model_B_trainable_seed44 in 388.8s (40 epochs) | Val Acc: 0.9181 | Test Acc: 0.8333 | F1: 0.7482 | AUC: 0.8573 | Drift: 2.184826 | Est. Time Left: 2.67h
+[2026-10-14 18:02:07] ---------------------------------------------------------------------------
+[2026-10-14 18:02:07] [9/32] STARTING: model_B_trainable_seed45 | Mode: trainable | Seed: 45 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:07:22] [9/32] COMPLETED: model_B_trainable_seed45 in 314.3s (32 epochs) | Val Acc: 0.9229 | Test Acc: 0.8613 | F1: 0.7793 | AUC: 0.8725 | Drift: 3.285563 | Est. Time Left: 2.37h
+[2026-10-14 18:07:22] ---------------------------------------------------------------------------
+[2026-10-14 18:07:22] [10/32] STARTING: model_B_trainable_seed46 | Mode: trainable | Seed: 46 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:13:11] [10/32] COMPLETED: model_B_trainable_seed46 in 348.8s (35 epochs) | Val Acc: 0.9289 | Test Acc: 0.8575 | F1: 0.7854 | AUC: 0.8700 | Drift: 0.932345 | Est. Time Left: 2.24h
+[2026-10-14 18:13:11] ---------------------------------------------------------------------------
+[2026-10-14 18:13:11] [11/32] STARTING: model_C_classical_seed42 | Mode: classical_conv | Seed: 42 | Depth: 1 | lr_filter: 0.01

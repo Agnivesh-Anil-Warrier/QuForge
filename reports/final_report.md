@@ -1,6 +1,6 @@
 # QForge: Empirical Evaluation of Hybrid Quantum-Classical-Quantum CNN for Brain Tumor MRI Classification
 
-*Generated on: 2026-10-14 18:04:10*
+*Generated on: 2026-10-14 18:14:19*
 
 ## 1. Executive Summary
 This project reproduces and extends the hybrid quantum-classical-quantum convolutional neural network (QCQ-CNN) architecture proposed by Long et al. (2025) (*Scientific Reports* 15, 31780) for binary brain tumor MRI classification (Malignant Glioma vs. Benign Meningioma/Pituitary).
@@ -25,13 +25,13 @@ Below is the performance summary across independent seeds (Mean ± Standard Devi
 | Model Architecture | Seeds | Test Accuracy | Balanced Acc | F1 Score | ROC-AUC | Parameter Drift | Test Loss |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Model A (frozen_random) | 5 | 85.75% ± 1.66% | 82.34% ± 2.49% | 77.77% ± 3.44% | 87.33% ± 1.94% | 0.0000 ± 0.0000 rad | 0.7609 ± 0.1024 |
-| Model B (trainable) | 3 | 84.98% ± 1.43% | 81.94% ± 1.53% | 77.15% ± 2.09% | 87.48% ± 1.54% | 1.6418 ± 0.4703 rad | 0.7413 ± 0.0030 |
+| Model B (trainable) | 5 | 85.36% ± 1.14% | 82.22% ± 1.17% | 77.58% ± 1.61% | 87.34% ± 1.11% | 1.8286 ± 0.9318 rad | 0.7007 ± 0.0557 |
 
 ## 4. Statistical Significance Analysis (Model A vs. Model B)
-A paired analysis across 3 identical seeds ([42, 43, 44]) was conducted:
-- **Test Accuracy Difference**: Mean $\Delta$ = -0.06% (Paired t-statistic: -0.210, p-value: 0.8534, Cohen's d: -0.12).
-- **F1 Score Difference**: Mean $\Delta$ = +0.83% (Paired t-statistic: 0.749, p-value: 0.5318).
-- **ROC-AUC Difference**: Mean $\Delta$ = +1.21% (Paired t-statistic: 8.893, p-value: 0.0124).
+A paired analysis across 5 identical seeds ([42, 43, 44, 45, 46]) was conducted:
+- **Test Accuracy Difference**: Mean $\Delta$ = -0.39% (Paired t-statistic: -1.454, p-value: 0.2195, Cohen's d: -0.65).
+- **F1 Score Difference**: Mean $\Delta$ = -0.19% (Paired t-statistic: -0.211, p-value: 0.8432).
+- **ROC-AUC Difference**: Mean $\Delta$ = +0.00% (Paired t-statistic: 0.005, p-value: 0.9965).
 
 > [!NOTE]
 > The null hypothesis ($H_0: \mu_{\text{diff}} = 0$) cannot be rejected at $\alpha = 0.05$. Both configurations achieve comparable generalization under identical training regimes. This empirical finding indicates that a frozen random quantum filter serves as a potent, zero-cost non-linear reservoir projector.

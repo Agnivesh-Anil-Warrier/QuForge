@@ -1,0 +1,11 @@
+experiment,filter_mode,filter_depth,seed,epochs_trained,best_val_acc,test_acc,test_bal_acc,test_f1,test_auc,test_loss,param_drift
+model_A_frozen_seed42,frozen_random,1,42,65,0.9277,0.8641,0.8338,0.792,0.866,0.8844,0.0
+model_A_frozen_seed43,frozen_random,1,43,56,0.9289,0.8585,0.8242,0.7797,0.8755,0.8607,0.0
+model_A_frozen_seed44,frozen_random,1,44,29,0.9169,0.8287,0.7804,0.7178,0.8466,0.6919,0.0
+model_A_frozen_seed45,frozen_random,1,45,46,0.9373,0.8678,0.8408,0.8006,0.8787,0.6875,0.0
+model_A_frozen_seed46,frozen_random,1,46,47,0.9253,0.8687,0.838,0.7983,0.8999,0.6799,0.0
+model_B_trainable_seed42,trainable,1,42,52,0.9265,0.8585,0.833,0.7889,0.8808,0.7395,1.373339
+model_B_trainable_seed43,trainable,1,43,46,0.9241,0.8575,0.8223,0.7773,0.8863,0.7395,1.36709
+model_B_trainable_seed44,trainable,1,44,40,0.9181,0.8333,0.8029,0.7482,0.8573,0.7448,2.184826
+model_B_trainable_seed45,trainable,1,45,32,0.9229,0.8613,0.8228,0.7793,0.8725,0.6413,3.285563
+model_B_trainable_seed46,trainable,1,46,35,0.9289,0.8575,0.8299,0.7854,0.87,0.6382,0.932345
