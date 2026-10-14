@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Raw dataset and cached tensors
+data/raw/
+data/cache/
+
+# Model checkpoints and weights
+results/checkpoints/
+*.pt
+*.pth
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Testing & notebooks
+.pytest_cache/
+.ipynb_checkpoints/

@@ -1,0 +1,9 @@
+OS: Microsoft Windows 11 Home Single Language 10.0.26200
+CPU: AMD Ryzen 7 5700U with Radeon Graphics
+Physical Cores: 8
+Logical Cores: 16
+Total RAM (GB): 15.33
+Free Disk Space C: (GB): 84.16
+Python Launchers Detected:
+ -V:3.12 *        C:\Users\hola2\AppData\Local\Programs\Python\Python312\python.exe
+CUDA Available: False (CPU-only hardware check)

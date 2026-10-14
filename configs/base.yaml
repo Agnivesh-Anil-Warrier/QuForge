@@ -1,0 +1,49 @@
+# Base configuration for QForge Hybrid QCQ-CNN MRI Classifier
+
+dataset:
+  raw_dir: "data/raw"
+  cache_dir: "data/cache"
+  splits_dir: "data/splits"
+  image_size: [28, 28]
+  grayscale: true
+  normalize_range: [0.0, 1.0]
+  label_mapping:
+    glioma: 1        # Malignant
+    meningioma: 0    # Benign
+    pituitary: 0     # Benign
+    notumor: null    # Excluded from binary benign vs malignant task
+  class_names:
+    0: "Benign"
+    1: "Malignant"
+  split_seed: 42
+  train_val_ratio: [0.8, 0.2]
+
+model:
+  filter_mode: "frozen_random"  # 'frozen_random', 'trainable', 'classical_conv', 'none'
+  filter_depth: 1               # Number of variational layers L in quantum filter
+  classical_backbone:
+    conv1_channels: 16
+    conv2_channels: 32
+    dense_hidden: 64
+    out_features: 2             # (h0, h1) scaled to [-pi, pi]
+  vqc_head:
+    n_qubits: 2
+    reps: 2                     # RealAmplitudes layers (6 trainable params)
+
+training:
+  batch_size: 32
+  max_epochs: 100
+  early_stopping_patience: 15
+  optimizer: "adam"
+  lr_backbone: 1.0e-3
+  lr_quantum_filter: 1.0e-2
+  weight_decay: 1.0e-4
+  loss_type: "bce_with_logits"  # Supports class-weighted BCE
+  num_workers: 0                # Optimal for CPU statevector simulation
+  checkpoint_dir: "results/checkpoints"
+  save_every_epoch: true
+
+system:
+  device: "cpu"
+  torch_threads: null           # Autodetected as (physical_cores - 1)
+  seed: 42

@@ -1,0 +1,13 @@
+pennylane
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+seaborn
+pyyaml
+tqdm
+pillow
+imagehash
+pytest
+jupyter
