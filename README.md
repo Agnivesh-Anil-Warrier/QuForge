@@ -48,12 +48,22 @@ pip install -r requirements.txt
 
 ---
 
+## 🌐 Interactive Web Studio (Streamlit)
+Launch the modern browser-based web dashboard to test live MRI scans, visualize 4-channel quantum feature maps, and simulate NISQ hardware noise:
+```powershell
+.\.venv\Scripts\streamlit.exe run app_web.py
+```
+*(Or simply double-click `run_web.bat` in File Explorer).*
+
+---
+
 ## 🖥️ Interactive Desktop GUI (PySide6)
-Launch the full interactive scientific studio to run experiments, view results, explore figures, and inspect reports:
+Launch the full desktop scientific studio to run experiments, view results, explore figures, and inspect reports:
 ```powershell
 .\.venv\Scripts\python.exe app.py
 ```
 *(Or simply double-click `run_app.bat` in File Explorer).*
+
 
 ---
 
@@ -170,7 +180,8 @@ qforge-qmri/
 
 ---
 
-## ⚠️ Known Limitations
-1. **Statevector Simulation**: Exact classical statevector simulation on CPU; does not model quantum hardware noise, gate infidelity, or decoherence.
-2. **Spatial Downsampling**: $28 \times 28$ resolution limits spatial detail compared to high-resolution clinical scans.
-3. **Binary Taxonomy**: Grouping meningioma and pituitary tumors as benign is an established clinical convention for binary classification but simplifies the multi-class diagnostic task.
+## ⚠️ Known Limitations & Implemented Extensions
+1. **NISQ Hardware Noise Modeling**: Implemented in `src/qforge/noise.py` and benchmarked via `scripts/evaluate_noise.py` across single-qubit depolarizing rates $\gamma \in [0.00, 0.05]$, CNOT errors $2\gamma$, and finite-shot evaluations ($128$ to $1024$ shots).
+2. **Correlated Pauli Readout**: Implemented in `src/qforge/models.py` (`CorrelatedVQCHead`) measuring $[\langle Z_0 \rangle, \langle Z_1 \rangle, \langle Z_0 Z_1 \rangle]$ to preserve two-qubit entanglement correlations.
+3. **Spatial Downsampling**: $28 \times 28$ resolution limits spatial detail compared to high-resolution clinical scans.
+4. **Binary Taxonomy**: Grouping meningioma and pituitary tumors as benign is an established clinical convention for binary classification but simplifies the multi-class diagnostic task.
