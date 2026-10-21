@@ -1233,7 +1233,8 @@ class LabResultsView(QWidget):
 
         for r, row in df_sub.iterrows():
             is_model_a = "frozen" in str(row["group"]).lower()
-            accent_col = COLOR_CYAN if is_model_a else COLOR_VIOLET
+            is_corr = "correlated" in str(row["group"]).lower()
+            accent_col = COLOR_GREEN if is_corr else (COLOR_CYAN if is_model_a else COLOR_VIOLET)
 
             for c, col_name in enumerate(available):
                 val_str = str(row[col_name])
@@ -1388,6 +1389,7 @@ class LabVisualizationsView(QWidget):
             ("FIG 3 · ROC", self.figures_dir / "fig3_confusion_and_roc.png", "FIGURE 3: Aggregated confusion matrices and empirical test ROC curves."),
             ("FIG 4 · ABLATIONS", self.figures_dir / "fig4_ablations.png", "FIGURE 4: Sensitivity analysis over circuit depth L and learning rates."),
             ("FIG 5 · FEATURE MAPS", self.figures_dir / "fig5_quantum_feature_maps.png", "FIGURE 5: Spatial Pauli-Z expectation feature maps before vs after training."),
+            ("FIG 6 · NISQ NOISE", self.figures_dir / "noise_resilience.png", "FIGURE 6: Depolarizing error rate γ vs classification accuracy under finite-shot NISQ simulation (Ch 4.6)."),
             ("MRI · GLIOMA", self.samples_dir / "01_glioma_Tr-gl_987.jpg", "MRI SAMPLE 01: High-grade malignant glioma scan."),
             ("MRI · MENINGIOMA", self.samples_dir / "04_meningioma_Tr-me_969.jpg", "MRI SAMPLE 04: Benign extra-axial meningioma scan."),
         ]
