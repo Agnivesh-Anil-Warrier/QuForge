@@ -269,7 +269,7 @@ with tab1:
         st.markdown("**2. Quantum Filter Channels $\\langle Z_i \\rangle$ (14×14 each)**")
         fig_ch, axes = plt.subplots(1, 4, figsize=(10, 2.5), dpi=150)
         ch_names = ["Qubit 0 (Wire 0)", "Qubit 1 (Wire 1)", "Qubit 2 (Wire 2)", "Qubit 3 (Wire 3)"]
-        feat_np = feat_map.squeeze(0).cpu().numpy()
+        feat_np = feat_map.squeeze(0).detach().cpu().numpy()
 
         for i in range(4):
             im = axes[i].imshow(feat_np[i], cmap="magma", vmin=-1.0, vmax=1.0)
@@ -311,15 +311,18 @@ with tab1:
         st.markdown("**Measured Pauli-Z Observable Basis**")
         if hasattr(active_model.vqc_head, "readout"):
             from qforge.qsim import simulate_2q_vqc_correlated
-            expvals = simulate_2q_vqc_correlated(angles, active_model.vqc_head.weights)[0].cpu().numpy()
+            with torch.no_grad():
+                expvals = simulate_2q_vqc_correlated(angles, active_model.vqc_head.weights)[0].detach().cpu().numpy()
             st.write(f"- Single Observable $\\langle Z_0 \\rangle$: `{expvals[0]:.4f}`")
             st.write(f"- Single Observable $\\langle Z_1 \\rangle$: `{expvals[1]:.4f}`")
             st.write(f"- **Entanglement Observable $\\langle Z_0 Z_1 \\rangle$**: `{expvals[2]:.4f}` *(Preserves 2-Qubit Entanglement)*")
         else:
             from qforge.qsim import simulate_2q_vqc
-            z0_val = float(simulate_2q_vqc(angles, active_model.vqc_head.weights)[0].item())
+            with torch.no_grad():
+                z0_val = float(simulate_2q_vqc(angles, active_model.vqc_head.weights)[0].item())
             st.write(f"- Single Observable $\\langle Z_0 \\rangle$: `{z0_val:.4f}`")
             st.caption("*(Single-qubit readout discards second-qubit and joint entanglement)*")
+
 
 
 # ===========================================================================
