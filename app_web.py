@@ -8,6 +8,7 @@ Run with: .\\.venv\\Scripts\\streamlit.exe run app_web.py
 import io
 from pathlib import Path
 import sys
+from typing import Dict, List, Optional, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
