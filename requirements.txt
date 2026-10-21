@@ -11,3 +11,4 @@ pillow
 imagehash
 pytest
 jupyter
+streamlit
