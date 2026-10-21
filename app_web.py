@@ -37,47 +37,150 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Global dark-mode aesthetic */
-    .stApp {
-        background-color: #060910;
-        color: #D7E4EA;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    /* Quantum-Lab Exact Theme Specification */
+    html, body, [class*="css"], .stApp {
+        background-color: #060910 !important;
+        color: #D7E4EA !important;
+        font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace !important;
     }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #0A1019 !important;
+        border-right: 1px solid #1B2A3A !important;
+    }
+
+    /* Headings & Section Microcopy */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.5px;
+    }
+    .section-title {
+        color: #00E5FF;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+    }
+    .section-subtitle {
+        color: #6F8896;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        margin-bottom: 14px;
+    }
+
+    /* Panels & Metric Cards (0-2px corners, 1px borders, zero gradients) */
     .metric-card {
-        background: #0A1019;
+        background-color: #0A1019;
         border: 1px solid #1B2A3A;
-        border-radius: 8px;
-        padding: 16px;
+        border-radius: 2px;
+        padding: 14px;
         margin-bottom: 12px;
     }
+    .metric-card:hover {
+        background-color: #0F1826;
+        border-color: #2B4A5E;
+    }
+
+    /* Buttons ([ BUTTON ] Sharp Look) */
+    .stButton > button {
+        background-color: #0A1019 !important;
+        color: #00E5FF !important;
+        border: 1px solid #1B2A3A !important;
+        border-radius: 2px !important;
+        font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        padding: 6px 16px !important;
+        transition: all 0.15s ease-in-out !important;
+    }
+    .stButton > button:hover {
+        background-color: #0F1826 !important;
+        border-color: #00E5FF !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 0 8px rgba(0, 229, 255, 0.25) !important;
+    }
+
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 2px;
+        background-color: #060910;
+        border-bottom: 1px solid #1B2A3A;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: #0A1019 !important;
+        border: 1px solid #1B2A3A !important;
+        border-bottom: none !important;
+        border-radius: 2px 2px 0 0 !important;
+        color: #6F8896 !important;
+        font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        padding: 8px 16px !important;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #0F1826 !important;
+        color: #00E5FF !important;
+        border-top: 2px solid #00E5FF !important;
+        border-bottom: 1px solid #0F1826 !important;
+    }
+
+    /* Badges */
     .status-badge-malignant {
-        background-color: rgba(255, 77, 94, 0.15);
+        background-color: rgba(255, 77, 94, 0.12);
         color: #FF4D5E;
         border: 1px solid #FF4D5E;
-        border-radius: 6px;
-        padding: 4px 12px;
+        border-radius: 2px;
+        padding: 3px 8px;
+        font-size: 11px;
         font-weight: 700;
+        letter-spacing: 1px;
         display: inline-block;
     }
     .status-badge-benign {
-        background-color: rgba(57, 255, 136, 0.15);
+        background-color: rgba(57, 255, 136, 0.12);
         color: #39FF88;
         border: 1px solid #39FF88;
-        border-radius: 6px;
-        padding: 4px 12px;
+        border-radius: 2px;
+        padding: 3px 8px;
+        font-size: 11px;
         font-weight: 700;
+        letter-spacing: 1px;
         display: inline-block;
     }
-    .highlight-cyan {
+    .tag-cyan {
         color: #00E5FF;
-        font-weight: bold;
+        background-color: rgba(0, 229, 255, 0.1);
+        border: 1px solid #00E5FF;
+        border-radius: 2px;
+        padding: 2px 6px;
+        font-size: 10px;
     }
-    .highlight-violet {
+    .tag-violet {
         color: #B26BFF;
-        font-weight: bold;
+        background-color: rgba(178, 107, 255, 0.1);
+        border: 1px solid #B26BFF;
+        border-radius: 2px;
+        padding: 2px 6px;
+        font-size: 10px;
+    }
+
+    /* Input / Selectboxes */
+    div[data-baseweb="select"] > div {
+        background-color: #0A1019 !important;
+        border: 1px solid #1B2A3A !important;
+        border-radius: 2px !important;
+        color: #D7E4EA !important;
+        font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace !important;
+        font-size: 12px !important;
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # ---------------------------------------------------------------------------
@@ -179,10 +282,10 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 
 tab1, tab2, tab3, tab4 = st.tabs([
-    "🔬 Live MRI Inference & Quantum Filters",
-    "📊 Benchmark Matrix & Statistics",
-    "🛡️ NISQ Noise Resilience (Ch 4.6)",
-    "📑 Publication Figures & Report",
+    "> 01 // LIVE INFERENCE & KERNELS",
+    "> 02 // BENCHMARK MATRIX & STATS",
+    "> 03 // NISQ NOISE MODELING",
+    "> 04 // PUBLICATION ARTIFACTS",
 ])
 
 
@@ -191,14 +294,15 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # ===========================================================================
 
 with tab1:
-    st.subheader("Live Diagnostic Inference & 4-Channel Quantum Filter Visualization")
-    st.write("Upload a brain MRI scan or select a preset to evaluate quantum feature map extraction and classification.")
+    st.markdown("<div class='section-title'>> SECTION 01: LIVE MRI INFERENCE & QUANTUM FILTER KERNELS</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-subtitle'>// 4-CHANNEL QUANVOLUTIONAL FILTER + 2-QUBIT VQC CLASSIFIER ON CPU</div>", unsafe_allow_html=True)
 
-    col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 2])
+    col_btn1, col_btn2, col_btn3 = st.columns([1.2, 1.2, 2])
     with col_btn1:
-        use_glioma = st.button("🧪 Sample 1: Malignant Glioma")
+        use_glioma = st.button("[ LOAD: GLIOMA SAMPLE ]")
     with col_btn2:
-        use_benign = st.button("🧪 Sample 2: Benign Meningioma")
+        use_benign = st.button("[ LOAD: MENINGIOMA SAMPLE ]")
+
 
     uploaded_file = st.file_uploader("Or Upload MRI Image (JPG / PNG)", type=["png", "jpg", "jpeg"])
 
