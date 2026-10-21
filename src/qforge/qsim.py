@@ -160,29 +160,38 @@ def expval_z0_2q(state: torch.Tensor) -> torch.Tensor:
     return prob[:, 0, :].sum(dim=1) - prob[:, 1, :].sum(dim=1)
 
 
-def simulate_2q_vqc(h: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
-    """Simulate 2-qubit VQC head with ZZ feature map and RealAmplitudes ansatz.
+def expval_correlated_2q(state: torch.Tensor) -> torch.Tensor:
+    """Measure multi-observable Pauli-Z basis [<Z0>, <Z1>, <Z0*Z1>] on 2-qubit state.
     
-    Circuit:
-      Feature map:
-        H(0), H(1)
-        RZ(h0, 0), RZ(h1, 1)
-        CNOT(0, 1), RZ(h0*h1, 1), CNOT(0, 1)
-      Ansatz (RealAmplitudes, reps=2, 6 parameters):
-        RY(w0, 0), RY(w1, 1)
-        CNOT(0, 1)
-        RY(w2, 0), RY(w3, 1)
-        CNOT(0, 1)
-        RY(w4, 0), RY(w5, 1)
-      Measurement:
-        <Z0> in [-1.0, 1.0]
-        
-    Args:
-        h: Rotation angles of shape (B, 2) in [-pi, pi]
-        weights: Trainable parameters of shape (6,)
+    Basis representations:
+      P_00 = prob[:, 0, 0]
+      P_01 = prob[:, 0, 1]
+      P_10 = prob[:, 1, 0]
+      P_11 = prob[:, 1, 1]
+      
+    Expectations:
+      <Z0>    = (P_00 + P_01) - (P_10 + P_11)
+      <Z1>    = (P_00 + P_10) - (P_01 + P_11)
+      <Z0*Z1> = (P_00 + P_11) - (P_01 + P_10)  (Preserves 2-qubit entanglement)
+      
     Returns:
-        Tensor of shape (B,) containing expectation <Z0>
+        Tensor of shape (B, 3) with expectations in [-1.0, 1.0]
     """
+    prob = state.real**2 + state.imag**2
+    p00 = prob[:, 0, 0]
+    p01 = prob[:, 0, 1]
+    p10 = prob[:, 1, 0]
+    p11 = prob[:, 1, 1]
+
+    z0 = (p00 + p01) - (p10 + p11)
+    z1 = (p00 + p10) - (p01 + p11)
+    z0z1 = (p00 + p11) - (p01 + p10)
+
+    return torch.stack([z0, z1, z0z1], dim=-1)
+
+
+def _build_2q_vqc_state(h: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
+    """Internal helper to construct the final 2-qubit statevector."""
     B = h.shape[0]
     device = h.device
 
@@ -214,4 +223,24 @@ def simulate_2q_vqc(h: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
     state = apply_gate_2q(state, ry_matrix(weights[4].expand(B)), 0)
     state = apply_gate_2q(state, ry_matrix(weights[5].expand(B)), 1)
 
+    return state
+
+
+def simulate_2q_vqc(h: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
+    """Simulate 2-qubit VQC head measuring single-qubit <Z0>."""
+    state = _build_2q_vqc_state(h, weights)
     return expval_z0_2q(state)
+
+
+def simulate_2q_vqc_correlated(h: torch.Tensor, weights: torch.Tensor) -> torch.Tensor:
+    """Simulate 2-qubit VQC head measuring multi-observable basis [<Z0>, <Z1>, <Z0*Z1>].
+    
+    Args:
+        h: Latent rotation angles of shape (B, 2) in [-pi, pi]
+        weights: Trainable RealAmplitudes parameters of shape (6,)
+    Returns:
+        Tensor of shape (B, 3) containing [<Z0>, <Z1>, <Z0*Z1>]
+    """
+    state = _build_2q_vqc_state(h, weights)
+    return expval_correlated_2q(state)
+

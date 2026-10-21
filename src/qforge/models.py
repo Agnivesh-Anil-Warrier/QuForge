@@ -6,7 +6,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from qforge.qsim import simulate_2q_vqc
+from qforge.qsim import simulate_2q_vqc, simulate_2q_vqc_correlated
 from qforge.quantum_filter import QuantumFilter
 
 
@@ -67,11 +67,11 @@ class ClassicalBackbone(nn.Module):
 
 
 # ---------------------------------------------------------------------------
-# 2-Qubit Variational Quantum Classifier (VQC) Head
+# 2-Qubit Variational Quantum Classifier (VQC) Heads
 # ---------------------------------------------------------------------------
 
 class VQCHead(nn.Module):
-    """2-qubit Variational Quantum Classifier head.
+    """Standard 2-qubit VQC head measuring single-qubit expectation <Z0>.
     
     Circuit:
       - ZZ Feature Map: H on both qubits, RZ(h_i), CNOT, RZ(h0*h1), CNOT.
@@ -106,6 +106,42 @@ class VQCHead(nn.Module):
         return logits
 
 
+class CorrelatedVQCHead(nn.Module):
+    """Enhanced 2-qubit VQC head with multi-observable Pauli-Z readout [<Z0>, <Z1>, <Z0*Z1>].
+    
+    Preserves two-qubit entanglement correlations that are discarded when only measuring <Z0>.
+    The multi-observable expectation vector is passed through an adaptive linear decision layer:
+      logit = W * [<Z0>, <Z1>, <Z0*Z1>]^T + b
+    """
+
+    def __init__(self, seed: int = 42):
+        super().__init__()
+        rng = torch.Generator()
+        rng.manual_seed(seed)
+
+        # 6 trainable ansatz parameters
+        init_weights = torch.rand(6, generator=rng, dtype=torch.float32) * 2.0 * float(np.pi)
+        self.weights = nn.Parameter(init_weights)
+
+        # Adaptive linear readout over [<Z0>, <Z1>, <Z0*Z1>]
+        self.readout = nn.Linear(3, 1)
+        nn.init.constant_(self.readout.bias, 0.0)
+        with torch.no_grad():
+            self.readout.weight.copy_(torch.tensor([[1.0, 0.2, 0.5]], dtype=torch.float32))
+
+    def forward(self, h: torch.Tensor) -> torch.Tensor:
+        """Forward pass with correlated multi-observable readout.
+        
+        Args:
+            h: Rotation angles of shape (B, 2)
+        Returns:
+            Unnormalized binary logits of shape (B,)
+        """
+        expvals = simulate_2q_vqc_correlated(h, self.weights)  # (B, 3)
+        logits = self.readout(expvals).squeeze(-1)              # (B,)
+        return logits
+
+
 # ---------------------------------------------------------------------------
 # Full Hybrid QCQ-CNN Model
 # ---------------------------------------------------------------------------
@@ -119,11 +155,13 @@ class HybridQCQModel(nn.Module):
         filter_depth: int = 1,
         seed: int = 42,
         cache_dir: Optional[Union[str, Path]] = None,
+        use_correlated_readout: bool = False,
     ):
         super().__init__()
         self.filter_mode = filter_mode.lower()
         self.filter_depth = filter_depth
         self.seed = seed
+        self.use_correlated_readout = use_correlated_readout
 
         # 1. Front Quantum Filter
         self.quantum_filter = QuantumFilter(
@@ -137,8 +175,11 @@ class HybridQCQModel(nn.Module):
         in_channels = 1 if self.filter_mode == "none" else 4
         self.backbone = ClassicalBackbone(in_channels=in_channels)
 
-        # 3. 2-Qubit VQC Classifier Head
-        self.vqc_head = VQCHead(seed=seed)
+        # 3. 2-Qubit VQC Classifier Head (Standard or Correlated)
+        if use_correlated_readout:
+            self.vqc_head = CorrelatedVQCHead(seed=seed)
+        else:
+            self.vqc_head = VQCHead(seed=seed)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """End-to-end forward pass.

@@ -6,8 +6,8 @@ import pytest
 import torch
 import torch.nn as nn
 
-from qforge.models import ClassicalBackbone, HybridQCQModel, VQCHead
-from qforge.qsim import simulate_2q_vqc, simulate_4q_filter
+from qforge.models import ClassicalBackbone, HybridQCQModel, VQCHead, CorrelatedVQCHead
+from qforge.qsim import simulate_2q_vqc, simulate_2q_vqc_correlated, simulate_4q_filter
 from qforge.quantum_filter import QuantumFilter, pennylane_filter_circuit
 
 
@@ -178,3 +178,92 @@ def test_hybrid_model_end_to_end(mode):
     assert model.vqc_head.weights.grad is not None
     assert model.vqc_head.scale.grad is not None
     assert model.vqc_head.bias.grad is not None
+
+
+# ---------------------------------------------------------------------------
+# Test 7: Correlated Multi-Observable Pauli Readout vs PennyLane & End-to-End
+# ---------------------------------------------------------------------------
+
+def test_correlated_vqc_simulator_vs_pennylane_parity():
+    """Verify [<Z0>, <Z1>, <Z0*Z1>] measurement matches PennyLane to atol < 1e-5."""
+    dev = qml.device("default.qubit", wires=2)
+
+    @qml.qnode(dev, interface="torch", diff_method="backprop")
+    def _pl_vqc_correlated(w, h_vec):
+        qml.Hadamard(wires=0)
+        qml.Hadamard(wires=1)
+        qml.RZ(h_vec[0], wires=0)
+        qml.RZ(h_vec[1], wires=1)
+        qml.CNOT(wires=[0, 1])
+        qml.RZ(h_vec[0] * h_vec[1], wires=1)
+        qml.CNOT(wires=[0, 1])
+        qml.RY(w[0], wires=0)
+        qml.RY(w[1], wires=1)
+        qml.CNOT(wires=[0, 1])
+        qml.RY(w[2], wires=0)
+        qml.RY(w[3], wires=1)
+        qml.CNOT(wires=[0, 1])
+        qml.RY(w[4], wires=0)
+        qml.RY(w[5], wires=1)
+        return [
+            qml.expval(qml.PauliZ(0)),
+            qml.expval(qml.PauliZ(1)),
+            qml.expval(qml.PauliZ(0) @ qml.PauliZ(1)),
+        ]
+
+    torch.manual_seed(303)
+    h = torch.tensor([0.55, -0.35], dtype=torch.float32)
+    weights_sim = torch.nn.Parameter(torch.rand(6, dtype=torch.float32) * 2.0 * float(np.pi))
+    weights_pl = torch.nn.Parameter(weights_sim.detach().clone())
+
+    out_sim = simulate_2q_vqc_correlated(h.unsqueeze(0), weights_sim)[0]  # shape (3,)
+    loss_sim = out_sim.sum()
+    loss_sim.backward()
+
+    expvals_pl = _pl_vqc_correlated(weights_pl, h)
+    out_pl = torch.stack(expvals_pl)
+    loss_pl = out_pl.sum()
+    loss_pl.backward()
+
+    # Verify all 3 observables match
+    np.testing.assert_allclose(
+        out_sim.detach().numpy(),
+        out_pl.detach().numpy(),
+        atol=1e-5,
+        err_msg="Correlated Pauli-Z expectations deviate from PennyLane!"
+    )
+    # Verify parameter gradients match
+    np.testing.assert_allclose(
+        weights_sim.grad.detach().numpy(),
+        weights_pl.grad.detach().numpy(),
+        atol=1e-5,
+        err_msg="Correlated Pauli-Z gradients deviate from PennyLane!"
+    )
+
+
+def test_correlated_vqc_head_and_hybrid_model():
+    """Verify CorrelatedVQCHead and HybridQCQModel with correlated readout end-to-end."""
+    B = 4
+    h = torch.randn(B, 2)
+    head = CorrelatedVQCHead(seed=42)
+    logits = head(h)
+    assert logits.shape == (B,), f"Expected shape ({B},), got {logits.shape}"
+
+    # Backward pass through head
+    target = torch.tensor([1.0, 0.0, 1.0, 0.0])
+    loss = nn.BCEWithLogitsLoss()(logits, target)
+    loss.backward()
+    assert head.weights.grad is not None
+    assert head.readout.weight.grad is not None
+    assert head.readout.bias.grad is not None
+
+    # Full end-to-end hybrid model with correlated readout
+    x = torch.rand(B, 1, 28, 28)
+    model = HybridQCQModel(filter_mode="trainable", use_correlated_readout=True, seed=42)
+    out = model(x)
+    assert out.shape == (B,)
+    loss_full = nn.BCEWithLogitsLoss()(out, target)
+    loss_full.backward()
+    assert model.quantum_filter.weights.grad is not None
+    assert model.vqc_head.readout.weight.grad is not None
+
