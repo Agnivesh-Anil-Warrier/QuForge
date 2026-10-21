@@ -48,6 +48,15 @@ pip install -r requirements.txt
 
 ---
 
+## 🖥️ Interactive Desktop GUI (PySide6)
+Launch the full interactive scientific studio to run experiments, view results, explore figures, and inspect reports:
+```powershell
+.\.venv\Scripts\python.exe app.py
+```
+*(Or simply double-click `run_app.bat` in File Explorer).*
+
+---
+
 ## 🚀 Execution & Reproduction Guide
 
 ### Phase 1: Data Pipeline & Leakage Deduplication

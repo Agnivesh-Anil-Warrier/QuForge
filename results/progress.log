@@ -44,3 +44,45 @@
 [2026-10-14 18:13:11] [10/32] COMPLETED: model_B_trainable_seed46 in 348.8s (35 epochs) | Val Acc: 0.9289 | Test Acc: 0.8575 | F1: 0.7854 | AUC: 0.8700 | Drift: 0.932345 | Est. Time Left: 2.24h
 [2026-10-14 18:13:11] ---------------------------------------------------------------------------
 [2026-10-14 18:13:11] [11/32] STARTING: model_C_classical_seed42 | Mode: classical_conv | Seed: 42 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:16:25] [11/32] COMPLETED: model_C_classical_seed42 in 194.3s (68 epochs) | Val Acc: 0.9398 | Test Acc: 0.8696 | F1: 0.7953 | AUC: 0.8860 | Drift: 0.000000 | Est. Time Left: 1.93h
+[2026-10-14 18:16:25] ---------------------------------------------------------------------------
+[2026-10-14 18:16:25] [12/32] STARTING: model_C_classical_seed43 | Mode: classical_conv | Seed: 43 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:20:04] [12/32] COMPLETED: model_C_classical_seed43 in 221.5s (36 epochs) | Val Acc: 0.9205 | Test Acc: 0.8547 | F1: 0.7746 | AUC: 0.8815 | Drift: 0.000000 | Est. Time Left: 1.74h
+[2026-10-14 18:20:04] ---------------------------------------------------------------------------
+[2026-10-14 18:20:04] [13/32] STARTING: model_C_classical_seed44 | Mode: classical_conv | Seed: 44 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:22:50] [13/32] COMPLETED: model_C_classical_seed44 in 166.4s (88 epochs) | Val Acc: 0.9265 | Test Acc: 0.8603 | F1: 0.7857 | AUC: 0.8979 | Drift: 0.000000 | Est. Time Left: 1.54h
+[2026-10-14 18:22:50] ---------------------------------------------------------------------------
+[2026-10-14 18:22:50] [14/32] STARTING: model_C_classical_seed45 | Mode: classical_conv | Seed: 45 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:24:32] [14/32] COMPLETED: model_C_classical_seed45 in 102.0s (49 epochs) | Val Acc: 0.9205 | Test Acc: 0.8529 | F1: 0.7628 | AUC: 0.8740 | Drift: 0.000000 | Est. Time Left: 1.34h
+[2026-10-14 18:24:32] ---------------------------------------------------------------------------
+[2026-10-14 18:24:32] [15/32] STARTING: model_C_classical_seed46 | Mode: classical_conv | Seed: 46 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:25:26] [15/32] COMPLETED: model_C_classical_seed46 in 53.5s (26 epochs) | Val Acc: 0.9181 | Test Acc: 0.8250 | F1: 0.7219 | AUC: 0.8460 | Drift: 0.000000 | Est. Time Left: 1.15h
+[2026-10-14 18:25:26] ---------------------------------------------------------------------------
+[2026-10-14 18:25:26] [16/32] STARTING: model_D_none_seed42 | Mode: none | Seed: 42 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:28:13] [16/32] COMPLETED: model_D_none_seed42 in 167.5s (89 epochs) | Val Acc: 0.9313 | Test Acc: 0.8622 | F1: 0.7849 | AUC: 0.8902 | Drift: 0.000000 | Est. Time Left: 1.05h
+[2026-10-14 18:28:13] ---------------------------------------------------------------------------
+[2026-10-14 18:28:13] [17/32] STARTING: model_D_none_seed43 | Mode: none | Seed: 43 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:29:33] [17/32] COMPLETED: model_D_none_seed43 in 79.6s (42 epochs) | Val Acc: 0.9157 | Test Acc: 0.8641 | F1: 0.7908 | AUC: 0.8919 | Drift: 0.000000 | Est. Time Left: 0.93h
+[2026-10-14 18:29:33] ---------------------------------------------------------------------------
+[2026-10-14 18:29:33] [18/32] STARTING: model_D_none_seed44 | Mode: none | Seed: 44 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:30:47] [18/32] COMPLETED: model_D_none_seed44 in 73.9s (39 epochs) | Val Acc: 0.9060 | Test Acc: 0.8464 | F1: 0.7563 | AUC: 0.8607 | Drift: 0.000000 | Est. Time Left: 0.82h
+[2026-10-14 18:30:47] ---------------------------------------------------------------------------
+[2026-10-14 18:30:47] [19/32] STARTING: model_D_none_seed45 | Mode: none | Seed: 45 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:32:54] [19/32] COMPLETED: model_D_none_seed45 in 127.6s (68 epochs) | Val Acc: 0.9301 | Test Acc: 0.8687 | F1: 0.7923 | AUC: 0.9038 | Drift: 0.000000 | Est. Time Left: 0.74h
+[2026-10-14 18:32:54] ---------------------------------------------------------------------------
+[2026-10-14 18:32:54] [20/32] STARTING: model_D_none_seed46 | Mode: none | Seed: 46 | Depth: 1 | lr_filter: 0.01
+[2026-10-14 18:34:25] [20/32] COMPLETED: model_D_none_seed46 in 90.9s (47 epochs) | Val Acc: 0.9349 | Test Acc: 0.8631 | F1: 0.7897 | AUC: 0.8995 | Drift: 0.000000 | Est. Time Left: 0.65h
+[2026-10-14 18:34:25] ---------------------------------------------------------------------------
+[2026-10-14 18:34:25] [21/32] STARTING: ablation_depth_L2_seed42 | Mode: trainable | Seed: 42 | Depth: 2 | lr_filter: 0.01
+[2026-10-14 18:41:29] [21/32] COMPLETED: ablation_depth_L2_seed42 in 423.3s (38 epochs) | Val Acc: 0.9229 | Test Acc: 0.8603 | F1: 0.7875 | AUC: 0.8835 | Drift: 1.990219 | Est. Time Left: 0.64h
+[2026-10-14 18:41:29] ---------------------------------------------------------------------------
+[2026-10-14 18:41:29] [22/32] STARTING: ablation_depth_L2_seed43 | Mode: trainable | Seed: 43 | Depth: 2 | lr_filter: 0.01
+[2026-10-14 18:48:33] [22/32] COMPLETED: ablation_depth_L2_seed43 in 423.8s (38 epochs) | Val Acc: 0.9229 | Test Acc: 0.8557 | F1: 0.7704 | AUC: 0.8736 | Drift: 1.968101 | Est. Time Left: 0.62h
+[2026-10-14 18:48:33] ---------------------------------------------------------------------------
+[2026-10-14 18:48:33] [23/32] STARTING: ablation_depth_L2_seed44 | Mode: trainable | Seed: 44 | Depth: 2 | lr_filter: 0.01
+[2026-10-14 18:53:43] [23/32] COMPLETED: ablation_depth_L2_seed44 in 310.4s (28 epochs) | Val Acc: 0.9217 | Test Acc: 0.8557 | F1: 0.7737 | AUC: 0.8845 | Drift: 1.143263 | Est. Time Left: 0.57h
+[2026-10-14 18:53:43] ---------------------------------------------------------------------------
+[2026-10-14 18:53:43] [24/32] STARTING: ablation_depth_L3_seed42 | Mode: trainable | Seed: 42 | Depth: 3 | lr_filter: 0.01
+[2026-10-14 19:06:08] [24/32] COMPLETED: ablation_depth_L3_seed42 in 745.1s (50 epochs) | Val Acc: 0.9277 | Test Acc: 0.8594 | F1: 0.7789 | AUC: 0.8925 | Drift: 2.134366 | Est. Time Left: 0.57h
+[2026-10-14 19:06:08] ---------------------------------------------------------------------------
+[2026-10-14 19:06:08] [25/32] STARTING: ablation_depth_L3_seed43 | Mode: trainable | Seed: 43 | Depth: 3 | lr_filter: 0.01

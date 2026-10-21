@@ -1,4 +1,8 @@
 experiment,filter_mode,filter_depth,seed,epochs_trained,best_val_acc,test_acc,test_bal_acc,test_f1,test_auc,test_loss,param_drift
+ablation_depth_L2_seed42,trainable,2,42,38,0.9229,0.8603,0.8309,0.7875,0.8835,0.6498,1.990219
+ablation_depth_L2_seed43,trainable,2,43,38,0.9229,0.8557,0.8167,0.7704,0.8736,0.6971,1.968101
+ablation_depth_L2_seed44,trainable,2,44,28,0.9217,0.8557,0.8196,0.7737,0.8845,0.624,1.143263
+ablation_depth_L3_seed42,trainable,3,42,50,0.9277,0.8594,0.8231,0.7789,0.8925,0.792,2.134366
 model_A_frozen_seed42,frozen_random,1,42,65,0.9277,0.8641,0.8338,0.792,0.866,0.8844,0.0
 model_A_frozen_seed43,frozen_random,1,43,56,0.9289,0.8585,0.8242,0.7797,0.8755,0.8607,0.0
 model_A_frozen_seed44,frozen_random,1,44,29,0.9169,0.8287,0.7804,0.7178,0.8466,0.6919,0.0
@@ -9,3 +13,13 @@ model_B_trainable_seed43,trainable,1,43,46,0.9241,0.8575,0.8223,0.7773,0.8863,0.
 model_B_trainable_seed44,trainable,1,44,40,0.9181,0.8333,0.8029,0.7482,0.8573,0.7448,2.184826
 model_B_trainable_seed45,trainable,1,45,32,0.9229,0.8613,0.8228,0.7793,0.8725,0.6413,3.285563
 model_B_trainable_seed46,trainable,1,46,35,0.9289,0.8575,0.8299,0.7854,0.87,0.6382,0.932345
+model_C_classical_seed42,classical_conv,1,42,68,0.9398,0.8696,0.8346,0.7953,0.886,0.8734,0.0
+model_C_classical_seed43,classical_conv,1,43,36,0.9205,0.8547,0.8207,0.7746,0.8815,0.608,0.0
+model_C_classical_seed44,classical_conv,1,44,88,0.9265,0.8603,0.8291,0.7857,0.8979,0.8541,0.0
+model_C_classical_seed45,classical_conv,1,45,49,0.9205,0.8529,0.811,0.7628,0.874,0.788,0.0
+model_C_classical_seed46,classical_conv,1,46,26,0.9181,0.825,0.7834,0.7219,0.846,0.6845,0.0
+model_D_none_seed42,none,1,42,89,0.9313,0.8622,0.8276,0.7849,0.8902,0.9339,0.0
+model_D_none_seed43,none,1,43,42,0.9157,0.8641,0.8326,0.7908,0.8919,0.6293,0.0
+model_D_none_seed44,none,1,44,39,0.906,0.8464,0.8071,0.7563,0.8607,0.6882,0.0
+model_D_none_seed45,none,1,45,68,0.9301,0.8687,0.8321,0.7923,0.9038,0.7808,0.0
+model_D_none_seed46,none,1,46,47,0.9349,0.8631,0.8319,0.7897,0.8995,0.6284,0.0
