@@ -375,43 +375,41 @@ QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {{
 # ---------------------------------------------------------------------------
 
 HTML_WORKFLOW_ACTIONS = """
-<h3 style="color:#00E5FF; margin-top:0;">DASHBOARD ACTION BUTTONS GUIDE</h3>
-<p style="color:#D7E4EA;">Functional documentation of each execution button available in the Dashboard Action Bar:</p>
+<h3 style="color:#00E5FF; margin-top:0;">WORKFLOW ACTION BUTTONS: PURPOSE & EXECUTION</h3>
+<p style="color:#D7E4EA;">Here is the exact difference between the three primary operational triggers in the Action Bar:</p>
 
-<table cellpadding="8" cellspacing="0" style="width:100%; border:1px solid #1B2A3A; margin-bottom:14px;">
+<table cellpadding="8" cellspacing="0" style="width:100%; border:1px solid #1B2A3A; margin-bottom:16px;">
   <tr style="background-color:#0A1019; color:#00E5FF;">
     <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Action Button</th>
-    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Target Script</th>
-    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Functional Description</th>
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Dispatched Target</th>
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">What It Does</th>
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">When to Use in Demo</th>
   </tr>
   <tr>
     <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ &gt; RUN BENCHMARK ]</td>
     <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;"><code>scripts/benchmark_and_smoke.py</code></td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Measures image throughput (434 images/sec on CPU via pure-PyTorch vectorized einsum simulation), inspects memory allocation, and runs a quick 1-batch smoke pass on the full hybrid pipeline.</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Measures computational throughput (434 images/sec on CPU via pure-PyTorch vectorized einsum simulation), checks CPU memory allocation, and runs a quick 1-batch smoke pass on the full hybrid pipeline.</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#39FF88;">Use to prove high-performance computing capability without waiting minutes.</td>
   </tr>
   <tr>
     <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ RUN TESTS ]</td>
     <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;"><code>pytest -v</code></td>
     <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Executes the 23-test automated regression suite: verifies quantum gate unitarity (U†U = I), analytical autograd gradients, perceptual hash deduplication (110 Kaggle leakage slices removed), and checkpoint serialization.</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#39FF88;">Use when an examiner asks about mathematical verification and unit test coverage.</td>
   </tr>
   <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ RECOMPUTE FIGURES ]</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;"><code>scripts/make_report.py</code></td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Aggregates all empirical run logs from <code>results/runs/</code>, calculates statistical significance (paired t-test, Cohen's d, Wilcoxon, yielding p = 0.220), regenerates publication figures 1 to 6 in <code>reports/figures/</code>, and compiles reports.</td>
-  </tr>
-  <tr>
-    <td style="color:#00E5FF; font-weight:bold;">[ OPEN PRESENTATION ]</td>
-    <td style="color:#6F8896;"><code>presentation.pdf</code></td>
-    <td style="color:#D7E4EA;">Opens the presentation PDF slide deck in the system default document viewer.</td>
+    <td style="color:#00E5FF; font-weight:bold;">[ RECOMPUTE FIGURES ]</td>
+    <td style="color:#6F8896;"><code>scripts/make_report.py</code></td>
+    <td style="color:#D7E4EA;">Aggregates all empirical run logs from <code>results/runs/</code>, calculates statistical significance (paired t-test, Cohen's d, Wilcoxon, yielding p = 0.220), regenerates publication figures 1 to 6 in <code>reports/figures/</code>, and compiles reports.</td>
+    <td style="color:#39FF88;">Use to show how scientific reproducibility and publication-ready figures are generated from raw logs.</td>
   </tr>
 </table>
 
 <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:12px; margin-top:10px;">
-  <span style="color:#FFB400; font-weight:bold;">[QUICK SUMMARY]</span><br>
-  &bull; <b>Benchmark:</b> Evaluates hardware speed, execution throughput, and memory allocation.<br>
-  &bull; <b>Tests:</b> Verifies mathematical correctness, unitarity, and code integrity across 23 tests.<br>
-  &bull; <b>Recompute Figures:</b> Computes statistical significance tests and updates publication plots from log files.<br>
-  &bull; <b>Open Presentation:</b> Launches the slide presentation document.
+  <span style="color:#FFB400; font-weight:bold;">[KEY DISTINCTION FOR DEMO]</span><br>
+  &bull; <b>Benchmark</b> checks <i>speed, throughput, and hardware memory allocation</i>.<br>
+  &bull; <b>Tests</b> check <i>mathematical unitarity, autograd gradients, and software integrity</i>.<br>
+  &bull; <b>Recompute Figures</b> checks <i>statistical significance across experimental runs and generates publication plots</i>.
 </div>
 """
 
@@ -609,72 +607,45 @@ accuracy: 0.7579 (75.8%)  |  roc_auc: 0.7930 (0.793)  |  confusion_matrix: [[634
 
 """
 
-HTML_RUNNER_CONTROLS = """
-<h3 style="color:#00E5FF; margin-top:0;">EXPERIMENT RUNNER: PARAMETERS & BUTTONS GUIDE</h3>
-<p style="color:#D7E4EA;">Detailed operational explanation of each input parameter and execution button in the runner panel:</p>
+HTML_DEMO_PITCHES = """
+<h3 style="color:#00E5FF; margin-top:0;">30-SECOND DEMO SPEAKING PITCHES & CHEATSHEET</h3>
+<p style="color:#D7E4EA;">Use these concise, high-impact elevator pitches when presenting or answering viva questions:</p>
 
-<table cellpadding="8" cellspacing="0" style="width:100%; border:1px solid #1B2A3A; margin-bottom:14px;">
-  <tr style="background-color:#0A1019; color:#00E5FF;">
-    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Control / Button</th>
-    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Type</th>
-    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Description & Purpose</th>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter Mode</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Dropdown</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">
-      <b>&bull; trainable (Model B):</b> 4-qubit variational quantum filter with autograd-trainable rotation angles.<br>
-      <b>&bull; frozen_random (Model A):</b> Random quantum filter initialized once and frozen as a zero-compute quantum reservoir.<br>
-      <b>&bull; classical_conv:</b> Classical 2x2 Conv2d baseline with parameter count matched to the quantum filter.<br>
-      <b>&bull; none:</b> Pure classical baseline passing raw patches directly to the CNN backbone.
-    </td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Random Seed</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Fixes pseudorandom initialization across dataset splits, PyTorch weights, and quantum rotation angles for reproducible benchmarking.</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter Depth (L)</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer (1&ndash;5)</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Number of variational quantum ansatz circuit repetitions. (L=1 is empirically optimal; L&ge;2 disperses gradient energy).</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Max Epochs</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer (1&ndash;200)</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Maximum full passes through the training dataset (3,318 MRI slices). 2 epochs serve as a quick smoke-test; full convergence occurs at 10&ndash;15 epochs.</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter LR (&eta;)</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Float</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Learning rate for quantum circuit rotation angles &theta; (default 0.0100 for stable gradient flow).</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Patience</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Early stopping limit: halts training if validation loss does not reach a new minimum for N consecutive epochs.</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Run Identifier</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Text</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Designates output directory under <code>results/runs/</code>. Defaults to auto (e.g. <code>exp_trainable_seed42</code>).</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ &gt; RUN EXPERIMENT ]</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Primary Button</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Spawns <code>scripts/run_experiment.py</code> with the configured parameters, streaming real-time loss dynamics to the chart and console.</td>
-  </tr>
-  <tr>
-    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ RUN AUTOMATED GRID ]</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Button</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Dispatches <code>scripts/run_all.py</code> to execute the full 25-seed experimental matrix across all architectural modes sequentially.</td>
-  </tr>
-  <tr>
-    <td style="color:#FF4D5E; font-weight:bold;">[ X STOP ]</td>
-    <td style="color:#6F8896;">Danger Button</td>
-    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Sends SIGTERM / SIGKILL to safely terminate the running background Python subprocess.</td>
-  </tr>
-</table>
+<div style="background-color:#0A1019; border:1px solid #00E5FF; padding:12px; margin-bottom:14px;">
+  <h4 style="color:#00E5FF; margin-top:0; margin-bottom:6px;">1. ARCHITECTURE PITCH: What is "Model B + Correlated Readout"?</h4>
+  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
+  <i>"Standard architectures entangle two qubits in the final VQC head using a CNOT gate, but then discard the second qubit by only measuring &lt;Z0&gt;.<br><br>
+  <b>'Model B + Correlated Readout'</b> is our full architecture: it makes the front quantum filter trainable and upgrades the VQC head to measure the joint observable &lt;Z0 Z1&gt; alongside &lt;Z0&gt; and &lt;Z1&gt;. This preserves two-qubit quantum entanglement, boosting diagnostic accuracy from 85.7% to 87.25%, ROC-AUC to 88.90%, and cutting NISQ hardware noise degradation from -10.5% down to -2.7%."</i>
+  </p>
+</div>
+
+<div style="background-color:#0A1019; border:1px solid #B26BFF; padding:12px; margin-bottom:14px;">
+  <h4 style="color:#B26BFF; margin-top:0; margin-bottom:6px;">2. RUNNER & LOSS GRAPH PITCH: What Just Happened in the Training Run?</h4>
+  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
+  <i>"Here in the runner panel, we dispatched a training pass of Model B. In the console, our pure-PyTorch vectorized simulator processes over 430 images per second, taking just 10 seconds per epoch.<br><br>
+  Looking at the live loss graph: the cyan dashed curve represents training loss and the violet solid curve represents validation loss. Both curves decrease in parallel from 0.81 down to 0.69, proving healthy optimization without overfitting or barren plateaus.<br><br>
+  Notice the 'Drift' column: the quantum filter parameters moved by 0.55 radians away from initialization, demonstrating that PyTorch autograd is actively rotating the 4-qubit quantum gates to extract MRI tumor edges."</i>
+  </p>
+</div>
+
+<div style="background-color:#0A1019; border:1px solid #39FF88; padding:12px; margin-bottom:14px;">
+  <h4 style="color:#39FF88; margin-top:0; margin-bottom:6px;">3. WORKFLOW ACTIONS PITCH: Difference Between Benchmark, Tests, and Recompute Figures</h4>
+  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
+  &bull; <b>Run Benchmark:</b> Evaluates hardware throughput (434 img/s) and memory footprint on CPU using vectorized PyTorch einsum.<br>
+  &bull; <b>Run Tests:</b> Runs the 23-test PyTest suite verifying mathematical unitarity (U†U = I), exact backprop gradients, and 110-slice perceptual hash deduplication.<br>
+  &bull; <b>Recompute Figures:</b> Ingests all empirical logs, runs paired t-tests (yielding p = 0.220), and generates publication-grade Figures 1 to 6.
+  </p>
+</div>
+
+<div style="background-color:#0A1019; border:1px solid #FFB400; padding:12px;">
+  <h4 style="color:#FFB400; margin-top:0; margin-bottom:6px;">4. VISUALIZATIONS PITCH: Dynamics, Drift, ROC, and Ablations</h4>
+  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
+  &bull; <b>Dynamics (Fig 1):</b> Proves reproducible convergence across 5 random seeds with early stopping at epoch 14.<br>
+  &bull; <b>Drift (Fig 2):</b> Parameter drift of 1.83 radians proves healthy autograd optimization without barren plateaus.<br>
+  &bull; <b>ROC (Fig 3):</b> Demonstrates Correlated Readout expands the area under the curve to 0.8890 AUC.<br>
+  &bull; <b>Ablations (Fig 4):</b> Proves shallow depth L=1 is optimal on NISQ data; deeper circuits disperse gradients without gain.
+  </p>
+</div>
 """
 
 HTML_FIGURE_GUIDES = {
@@ -692,9 +663,9 @@ HTML_FIGURE_GUIDES = {
         &bull; <b>Early Stopping Efficacy:</b> With patience=15, models automatically checkpoint at their optimal generalization point (best validation loss).
         </p>
 
-        <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:10px; margin-top:10px;">
-          <span style="color:#00E5FF; font-weight:bold;">[SUMMARY]</span><br>
-          Across 5 independent random seeds, the hybrid network converges smoothly and reproducibly. The narrow confidence bands confirm high stability, and validation loss plateaus around epoch 14 where early stopping checkpoints the model before any overfitting can occur.
+        <div style="background-color:#0A1019; border:1px solid #00E5FF; padding:10px; margin-top:10px;">
+          <span style="color:#00E5FF; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
+          <i>"Figure 1 proves that across 5 independent random seeds, the hybrid network converges smoothly and reproducibly. The narrow confidence bands confirm high stability, and validation loss plateaus around epoch 14 where early stopping checkpoints the model before any overfitting can occur."</i>
         </div>
         """
     },
@@ -712,9 +683,9 @@ HTML_FIGURE_GUIDES = {
         &bull; <b>The Paradox:</b> Even though the parameters move by 1.83 rad, classification accuracy remains statistically tied with frozen Model A (p = 0.220). This empirical discovery demonstrates that the frozen circuit already acts as an optimal random reservoir projector!
         </p>
 
-        <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:10px; margin-top:10px;">
-          <span style="color:#FFB400; font-weight:bold;">[SUMMARY]</span><br>
-          The parameter drift of 1.83 radians proves that PyTorch autograd continuously delivers non-zero gradients, ruling out barren plateaus. The accuracy parity with frozen Model A confirms that the initial random filter already operates as an optimal zero-compute quantum reservoir.
+        <div style="background-color:#0A1019; border:1px solid #FFB400; padding:10px; margin-top:10px;">
+          <span style="color:#FFB400; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
+          <i>"Figure 2 rules out the notorious quantum barren plateau problem. The quantum angles drift by 1.83 radians, proving PyTorch autograd continuously delivers strong, non-zero gradients. However, the accuracy parity proves the frozen random filter already acts as a zero-compute quantum reservoir."</i>
         </div>
         """
     },
@@ -732,9 +703,9 @@ HTML_FIGURE_GUIDES = {
         &bull; <b>The Correlated Readout Breakthrough:</b> Model B + Correlated Readout lifts the ROC curve upward, achieving an <b>AUC of 0.8890</b> and reducing false negatives by retaining 2-qubit CNOT entanglement parity.
         </p>
 
-        <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:10px; margin-top:10px;">
-          <span style="color:#39FF88; font-weight:bold;">[SUMMARY]</span><br>
-          Standard Model B matches Model A at 0.873 AUC due to the single-qubit measurement bottleneck. By upgrading to Correlated Readout, the ROC curve shifts upward to 0.8890 AUC, significantly reducing false negative tumor misclassifications.
+        <div style="background-color:#0A1019; border:1px solid #39FF88; padding:10px; margin-top:10px;">
+          <span style="color:#39FF88; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
+          <i>"Figure 3 shows our diagnostic classification trade-off. Standard Model B matches Model A at 0.873 AUC due to the single-qubit measurement bottleneck. By upgrading to Correlated Readout, the ROC curve shifts upward to 0.8890 AUC, significantly reducing false negative tumor misclassifications."</i>
         </div>
         """
     },
@@ -752,9 +723,9 @@ HTML_FIGURE_GUIDES = {
         &bull; <b>Learning Rate Sweet Spot:</b> &eta; = 0.01 provides optimal gradient flow; &eta; = 0.001 adapts too slowly, while &eta; = 0.05 exhibits slight oscillation in validation loss.
         </p>
 
-        <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:10px; margin-top:10px;">
-          <span style="color:#FFB400; font-weight:bold;">[SUMMARY]</span><br>
-          In NISQ quantum vision, shallow depth L=1 is optimal. Deeper quantum circuits increase expressivity and gate depth but disperse gradients without clinical accuracy gains, demonstrating that minimal quantum resources yield the best hybrid synergy.
+        <div style="background-color:#0A1019; border:1px solid #FFB400; padding:10px; margin-top:10px;">
+          <span style="color:#FFB400; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
+          <i>"Figure 4 demonstrates that in NISQ quantum vision, shallow depth L=1 is optimal. Deeper quantum circuits increase expressivity and gate depth but disperse gradients without clinical accuracy gains. This confirms that minimal quantum resources yield the best hybrid synergy."</i>
         </div>
         """
     },
@@ -786,9 +757,9 @@ HTML_FIGURE_GUIDES = {
         &bull; <b>Fault-Tolerant Hilbert Subspace:</b> Because Correlated Readout measures the joint observable &lang;Z0 Z1&rang;, correlated errors are captured and mitigated by the adaptive linear layer, producing an error-resilient quantum representation.
         </p>
 
-        <div style="background-color:#0A1019; border:1px solid #1B2A3A; padding:10px; margin-top:10px;">
-          <span style="color:#39FF88; font-weight:bold;">[SUMMARY]</span><br>
-          While the baseline collapses by over 10% under physical depolarizing gate noise, Model B + Correlated Readout drops by only 2.75%, retaining over 84.5% diagnostic accuracy due to its error-resilient entangled subspace in Hilbert space.
+        <div style="background-color:#0A1019; border:1px solid #39FF88; padding:10px; margin-top:10px;">
+          <span style="color:#39FF88; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
+          <i>"Figure 6 demonstrates the real-world NISQ advantage: while the baseline collapses by over 10% under gate noise, our Model B + Correlated Readout drops by only 2.75%, retaining over 84.5% diagnostic accuracy. Measuring joint entangled observables creates an error-resilient subspace in Hilbert space."</i>
         </div>
         """
     },
@@ -1185,10 +1156,10 @@ class LabDashboardView(QWidget):
         btn_pdf = QPushButton("[ OPEN PRESENTATION ]")
         btn_pdf.clicked.connect(self.open_presentation)
 
-        btn_actions_guide = QPushButton("[ ? ACTION BUTTONS GUIDE ]")
+        btn_actions_guide = QPushButton("[ ? WORKFLOW ACTIONS GUIDE ]")
         btn_actions_guide.clicked.connect(self.open_workflow_actions_guide)
 
-        btn_arch_guide = QPushButton("[ ? ARCHITECTURE GUIDE ]")
+        btn_arch_guide = QPushButton("[ ? MODEL B + READOUT GUIDE ]")
         btn_arch_guide.clicked.connect(self.open_model_b_guide)
 
         action_bar.addWidget(btn_bench)
@@ -1383,12 +1354,6 @@ class LabExperimentRunnerView(QWidget):
         self.btn_stop.clicked.connect(self.stop_process)
         left_vbox.addWidget(self.btn_stop)
 
-        left_vbox.addSpacing(6)
-
-        btn_runner_guide = QPushButton("[ ? PARAMETERS & BUTTONS GUIDE ]")
-        btn_runner_guide.clicked.connect(self.open_runner_controls_guide)
-        left_vbox.addWidget(btn_runner_guide)
-
         left_vbox.addStretch()
         layout.addWidget(left_col)
 
@@ -1447,7 +1412,7 @@ class LabExperimentRunnerView(QWidget):
         chart_head_row.addWidget(c_head)
         chart_head_row.addStretch()
 
-        btn_chart_guide = QPushButton("[ ? LOSS CURVES & METRICS GUIDE ]")
+        btn_chart_guide = QPushButton("[ ? EXPLAIN DYNAMICS, DRIFT & METRICS ]")
         btn_chart_guide.setFixedHeight(24)
         btn_chart_guide.clicked.connect(self.open_dynamics_guide)
         chart_head_row.addWidget(btn_chart_guide)
@@ -1470,6 +1435,11 @@ class LabExperimentRunnerView(QWidget):
         self.cons_header.setProperty("class", "text-dim")
         t_box.addWidget(self.cons_header)
         t_box.addStretch()
+
+        btn_console_pitch = QPushButton("[ ? 30-SEC DEMO PITCH ]")
+        btn_console_pitch.setFixedHeight(24)
+        btn_console_pitch.clicked.connect(self.open_pitch_guide)
+        #t_box.addWidget(btn_console_pitch)
 
         self.chk_auto = QCheckBox("AUTO-SCROLL")
         self.chk_auto.setChecked(True)
@@ -1651,25 +1621,25 @@ class LabExperimentRunnerView(QWidget):
     def clear_log(self):
         self.console.clear()
 
-    def open_runner_controls_guide(self):
-        dlg = LabExplanationDialog(
-            title="EXPERIMENT RUNNER // PARAMETERS & BUTTONS GUIDE",
-            subtitle="INPUT CONFIGURATION & EXECUTION CONTROLS",
-            html_content=HTML_RUNNER_CONTROLS,
-            parent=self,
-            width=920,
-            height=640,
-        )
-        dlg.exec()
-
     def open_dynamics_guide(self):
         dlg = LabExplanationDialog(
-            title="TRAINING DYNAMICS & METRICS GUIDE",
+            title="TRAINING DYNAMICS, LOSS CURVES & METRICS",
             subtitle="INTERPRETING LIVE CHARTS, DRIFT, AND 2-EPOCH TO CONVERGENCE PROGRESSION",
             html_content=HTML_DYNAMICS_AND_METRICS,
             parent=self,
             width=940,
             height=700,
+        )
+        dlg.exec()
+
+    def open_pitch_guide(self):
+        dlg = LabExplanationDialog(
+            title="30-SECOND DEMO SPEAKING PITCHES",
+            subtitle="EXECUTIVE RUNNER & ARCHITECTURE CHEATSHEET FOR EVALUATORS",
+            html_content=HTML_DEMO_PITCHES,
+            parent=self,
+            width=880,
+            height=580,
         )
         dlg.exec()
 
@@ -2020,7 +1990,7 @@ class LabVisualizationsView(QWidget):
 
         top_bar.addStretch()
 
-        btn_explain_fig = QPushButton("[ ? FIGURE DETAILS ]")
+        btn_explain_fig = QPushButton("[ ? EXPLAIN SELECTED FIGURE ]")
         btn_explain_fig.setFixedHeight(28)
         btn_explain_fig.clicked.connect(self.open_figure_guide)
         top_bar.addWidget(btn_explain_fig)
@@ -2325,11 +2295,28 @@ class QForgeLabMainWindow(QMainWindow):
 
         side_vbox.addStretch()
 
-        # 4. Bottom Button: [ SMOKE TEST ]
+        # 4. Bottom Buttons: [ SMOKE TEST ] & [ 30-SEC DEMO PITCH ]
         btn_smoke = QPushButton("[ SMOKE TEST ]")
         btn_smoke.setFixedHeight(34)
         btn_smoke.clicked.connect(lambda: self.view_runner.launch_script(["scripts/benchmark_and_smoke.py"]))
         side_vbox.addWidget(btn_smoke)
+
+        btn_pitches = QPushButton("[ ? 30-SEC DEMO PITCH ]")
+        btn_pitches.setFixedHeight(34)
+        btn_pitches.setStyleSheet(f"""
+            QPushButton {{
+                border: 1px solid {COLOR_CYAN};
+                color: {COLOR_CYAN};
+                background: rgba(0, 229, 255, 0.08);
+                font-weight: 700;
+            }}
+            QPushButton:hover {{
+                background: rgba(0, 229, 255, 0.18);
+                color: #FFFFFF;
+            }}
+        """)
+        btn_pitches.clicked.connect(self.open_demo_pitches_modal)
+        #side_vbox.addWidget(btn_pitches)
 
         root_layout.addWidget(sidebar)
 
@@ -2374,6 +2361,17 @@ class QForgeLabMainWindow(QMainWindow):
             self.view_runner.process.kill()
             self.view_runner.process.waitForFinished(1000)
         event.accept()
+
+    def open_demo_pitches_modal(self):
+        dlg = LabExplanationDialog(
+            title="DEMO SPEAKING PITCHES & CHEATSHEET",
+            subtitle="CONCISE 30-SECOND PITCHES FOR LIVE EVALUATORS AND EXAMINERS",
+            html_content=HTML_DEMO_PITCHES,
+            parent=self,
+            width=880,
+            height=620,
+        )
+        dlg.exec()
 
 
 def main():
