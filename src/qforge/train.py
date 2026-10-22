@@ -28,10 +28,12 @@ class Trainer:
         config: Dict[str, Any],
         run_dir: Union[str, Path],
         device: Optional[torch.device] = None,
+        force: bool = False,
     ):
         self.config = config
         self.run_dir = Path(run_dir)
         self.run_dir.mkdir(parents=True, exist_ok=True)
+        self.force = force
 
         # 1. Hardware & System Setup
         self.device = device or torch.device(config.get("system", {}).get("device", "cpu"))
@@ -240,9 +242,36 @@ class Trainer:
         with open(self.config_yaml_path, "w", encoding="utf-8") as f:
             yaml.dump(self.config, f, default_flow_style=False)
 
-        # 2. Check if already completed
-        if self.metrics_json_path.exists():
+        # If force: clean up prior artifacts so training runs fresh from epoch 1
+        if self.force:
+            for p in [self.metrics_json_path, self.history_csv_path, self.latest_ckpt_path, self.best_ckpt_path]:
+                if p.exists():
+                    p.unlink()
+            self.start_epoch = 1
+            self.best_val_acc = -1.0
+            self.patience_counter = 0
+            self.is_finished = False
+            self.history = []
+
+        # 2. Check if already completed (when not forcing)
+        if self.metrics_json_path.exists() and not self.force:
             print(f"Run already finished in {self.run_dir}. Loading metrics.json.")
+            if self.history_csv_path.exists():
+                try:
+                    df_hist = pd.read_csv(self.history_csv_path)
+                    print(f"{'Epoch':<6} | {'Train Loss':<10} | {'Train Acc':<9} | {'Val Loss':<8} | {'Val Acc':<8} | {'Drift':<7} | {'Time':<6}", flush=True)
+                    print("-" * 65, flush=True)
+                    for _, r in df_hist.iterrows():
+                        ep = int(r["epoch"])
+                        t_loss = float(r["train_loss"])
+                        t_acc = float(r["train_acc"])
+                        v_loss = float(r["val_loss"])
+                        v_acc = float(r["val_acc"])
+                        drift = float(r.get("parameter_drift", 0.0))
+                        dur = float(r.get("epoch_duration_sec", 0.0))
+                        print(f"{ep:<6} | {t_loss:<10.4f} | {t_acc:<9.4f} | {v_loss:<8.4f} | {v_acc:<8.4f} | {drift:<7.4f} | {dur:<5.1f}s", flush=True)
+                except Exception:
+                    pass
             with open(self.metrics_json_path, "r", encoding="utf-8") as f:
                 return json.load(f)
 
@@ -289,7 +318,8 @@ class Trainer:
                 print(
                     f"{epoch:<6} | {train_loss:<10.4f} | {train_acc:<9.4f} | "
                     f"{val_loss:<8.4f} | {val_acc:<8.4f} | {drift:<7.4f} | {duration:<5.1f}s"
-                    f"{' *' if is_best else ''}"
+                    f"{' *' if is_best else ''}",
+                    flush=True,
                 )
 
                 # Save history.csv and checkpoint every epoch

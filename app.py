@@ -603,49 +603,74 @@ accuracy: 0.7579 (75.8%)  |  roc_auc: 0.7930 (0.793)  |  confusion_matrix: [[634
     <td style="color:#6F8896;">Did not occur (confirmed by 0.55 rad drift).</td>
   </tr>
 </table>
-
-
 """
 
-HTML_DEMO_PITCHES = """
-<h3 style="color:#00E5FF; margin-top:0;">30-SECOND DEMO SPEAKING PITCHES & CHEATSHEET</h3>
-<p style="color:#D7E4EA;">Use these concise, high-impact elevator pitches when presenting or answering viva questions:</p>
+HTML_RUNNER_CONTROLS = """
+<h3 style="color:#00E5FF; margin-top:0;">EXPERIMENT RUNNER: PARAMETERS & BUTTONS GUIDE</h3>
+<p style="color:#D7E4EA;">Detailed operational explanation of each input parameter and execution button in the runner panel:</p>
 
-<div style="background-color:#0A1019; border:1px solid #00E5FF; padding:12px; margin-bottom:14px;">
-  <h4 style="color:#00E5FF; margin-top:0; margin-bottom:6px;">1. ARCHITECTURE PITCH: What is "Model B + Correlated Readout"?</h4>
-  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
-  <i>"Standard architectures entangle two qubits in the final VQC head using a CNOT gate, but then discard the second qubit by only measuring &lt;Z0&gt;.<br><br>
-  <b>'Model B + Correlated Readout'</b> is our full architecture: it makes the front quantum filter trainable and upgrades the VQC head to measure the joint observable &lt;Z0 Z1&gt; alongside &lt;Z0&gt; and &lt;Z1&gt;. This preserves two-qubit quantum entanglement, boosting diagnostic accuracy from 85.7% to 87.25%, ROC-AUC to 88.90%, and cutting NISQ hardware noise degradation from -10.5% down to -2.7%."</i>
-  </p>
-</div>
-
-<div style="background-color:#0A1019; border:1px solid #B26BFF; padding:12px; margin-bottom:14px;">
-  <h4 style="color:#B26BFF; margin-top:0; margin-bottom:6px;">2. RUNNER & LOSS GRAPH PITCH: What Just Happened in the Training Run?</h4>
-  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
-  <i>"Here in the runner panel, we dispatched a training pass of Model B. In the console, our pure-PyTorch vectorized simulator processes over 430 images per second, taking just 10 seconds per epoch.<br><br>
-  Looking at the live loss graph: the cyan dashed curve represents training loss and the violet solid curve represents validation loss. Both curves decrease in parallel from 0.81 down to 0.69, proving healthy optimization without overfitting or barren plateaus.<br><br>
-  Notice the 'Drift' column: the quantum filter parameters moved by 0.55 radians away from initialization, demonstrating that PyTorch autograd is actively rotating the 4-qubit quantum gates to extract MRI tumor edges."</i>
-  </p>
-</div>
-
-<div style="background-color:#0A1019; border:1px solid #39FF88; padding:12px; margin-bottom:14px;">
-  <h4 style="color:#39FF88; margin-top:0; margin-bottom:6px;">3. WORKFLOW ACTIONS PITCH: Difference Between Benchmark, Tests, and Recompute Figures</h4>
-  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
-  &bull; <b>Run Benchmark:</b> Evaluates hardware throughput (434 img/s) and memory footprint on CPU using vectorized PyTorch einsum.<br>
-  &bull; <b>Run Tests:</b> Runs the 23-test PyTest suite verifying mathematical unitarity (U†U = I), exact backprop gradients, and 110-slice perceptual hash deduplication.<br>
-  &bull; <b>Recompute Figures:</b> Ingests all empirical logs, runs paired t-tests (yielding p = 0.220), and generates publication-grade Figures 1 to 6.
-  </p>
-</div>
-
-<div style="background-color:#0A1019; border:1px solid #FFB400; padding:12px;">
-  <h4 style="color:#FFB400; margin-top:0; margin-bottom:6px;">4. VISUALIZATIONS PITCH: Dynamics, Drift, ROC, and Ablations</h4>
-  <p style="color:#D7E4EA; line-height:1.6; margin:0;">
-  &bull; <b>Dynamics (Fig 1):</b> Proves reproducible convergence across 5 random seeds with early stopping at epoch 14.<br>
-  &bull; <b>Drift (Fig 2):</b> Parameter drift of 1.83 radians proves healthy autograd optimization without barren plateaus.<br>
-  &bull; <b>ROC (Fig 3):</b> Demonstrates Correlated Readout expands the area under the curve to 0.8890 AUC.<br>
-  &bull; <b>Ablations (Fig 4):</b> Proves shallow depth L=1 is optimal on NISQ data; deeper circuits disperse gradients without gain.
-  </p>
-</div>
+<table cellpadding="8" cellspacing="0" style="width:100%; border:1px solid #1B2A3A; margin-bottom:14px;">
+  <tr style="background-color:#0A1019; color:#00E5FF;">
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Control / Button</th>
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Type</th>
+    <th style="border-bottom:1px solid #1B2A3A; text-align:left;">Description & Purpose</th>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter Mode</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Dropdown</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">
+      <b>&bull; trainable (Model B):</b> 4-qubit variational quantum filter with autograd-trainable rotation angles.<br>
+      <b>&bull; frozen_random (Model A):</b> Random quantum filter initialized once and frozen as a zero-compute quantum reservoir.<br>
+      <b>&bull; classical_conv:</b> Classical 2x2 Conv2d baseline with parameter count matched to the quantum filter.<br>
+      <b>&bull; none:</b> Pure classical baseline passing raw patches directly to the CNN backbone.
+    </td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Random Seed</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Sets the pseudorandom seed (e.g. 42) for dataset partitioning, weight initialization, and quantum state generation for strict reproducibility.</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter Depth (L)</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer (1&ndash;5)</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Number of variational quantum ansatz circuit repetitions. (L=1 is empirically optimal; L&ge;2 disperses gradient energy).</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Max Epochs</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer (1&ndash;200)</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Maximum full passes through the training dataset (3,318 MRI slices). 2 epochs serve as a quick smoke-test; full convergence occurs at 10&ndash;15 epochs.</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Filter LR (&eta;)</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Float</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Learning rate for quantum circuit rotation angles &theta; (default 0.0100 for stable gradient flow).</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Patience</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Integer</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Early stopping limit: halts training if validation loss does not reach a new minimum for N consecutive epochs.</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">Run Identifier</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Text</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Designates output directory under <code>results/runs/</code>. Defaults to auto (e.g. <code>exp_trainable_seed42</code>).</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ &gt; RUN EXPERIMENT ]</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Primary Button</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Spawns <code>scripts/run_experiment.py</code> with <code>--force</code> to execute fresh training and render real-time loss dynamics on the chart.</td>
+  </tr>
+  <tr>
+    <td style="border-bottom:1px solid #1B2A3A; color:#00E5FF; font-weight:bold;">[ RUN AUTOMATED GRID ]</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#6F8896;">Button</td>
+    <td style="border-bottom:1px solid #1B2A3A; color:#D7E4EA;">Dispatches <code>scripts/run_all.py</code> to execute the full 25-seed experimental matrix across all architectural modes sequentially.</td>
+  </tr>
+  <tr>
+    <td style="color:#FF4D5E; font-weight:bold;">[ X STOP ]</td>
+    <td style="color:#6F8896;">Danger Button</td>
+    <td style="color:#D7E4EA;">Sends SIGTERM / SIGKILL to safely terminate the running background Python subprocess.</td>
+  </tr>
+</table>
 """
 
 HTML_FIGURE_GUIDES = {
@@ -664,8 +689,8 @@ HTML_FIGURE_GUIDES = {
         </p>
 
         <div style="background-color:#0A1019; border:1px solid #00E5FF; padding:10px; margin-top:10px;">
-          <span style="color:#00E5FF; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
-          <i>"Figure 1 proves that across 5 independent random seeds, the hybrid network converges smoothly and reproducibly. The narrow confidence bands confirm high stability, and validation loss plateaus around epoch 14 where early stopping checkpoints the model before any overfitting can occur."</i>
+          <span style="color:#00E5FF; font-weight:bold;">[SCIENTIFIC CONCLUSION]</span><br>
+          <i>"Across 5 independent random seeds, the hybrid network converges smoothly and reproducibly. Narrow confidence bands confirm statistical stability, and validation loss plateaus around epoch 14 where early stopping checkpoints optimal generalization without overfitting."</i>
         </div>
         """
     },
@@ -684,8 +709,8 @@ HTML_FIGURE_GUIDES = {
         </p>
 
         <div style="background-color:#0A1019; border:1px solid #FFB400; padding:10px; margin-top:10px;">
-          <span style="color:#FFB400; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
-          <i>"Figure 2 rules out the notorious quantum barren plateau problem. The quantum angles drift by 1.83 radians, proving PyTorch autograd continuously delivers strong, non-zero gradients. However, the accuracy parity proves the frozen random filter already acts as a zero-compute quantum reservoir."</i>
+          <span style="color:#FFB400; font-weight:bold;">[SCIENTIFIC CONCLUSION]</span><br>
+          <i>"The cumulative parameter drift of 1.83 radians rules out barren plateaus, verifying continuous analytical gradient delivery via autograd. Concurrently, performance parity with frozen Model A demonstrates that the frozen quantum circuit acts as an effective zero-compute non-linear reservoir."</i>
         </div>
         """
     },
@@ -704,8 +729,8 @@ HTML_FIGURE_GUIDES = {
         </p>
 
         <div style="background-color:#0A1019; border:1px solid #39FF88; padding:10px; margin-top:10px;">
-          <span style="color:#39FF88; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
-          <i>"Figure 3 shows our diagnostic classification trade-off. Standard Model B matches Model A at 0.873 AUC due to the single-qubit measurement bottleneck. By upgrading to Correlated Readout, the ROC curve shifts upward to 0.8890 AUC, significantly reducing false negative tumor misclassifications."</i>
+          <span style="color:#39FF88; font-weight:bold;">[SCIENTIFIC CONCLUSION]</span><br>
+          <i>"Diagnostic classification trade-off analysis indicates that baseline Model B matches Model A at 0.873 AUC due to single-qubit measurement bottlenecking. Incorporating Correlated Readout raises the ROC-AUC to 0.8890, substantially reducing high-risk false-negative tumor misclassifications."</i>
         </div>
         """
     },
@@ -724,8 +749,8 @@ HTML_FIGURE_GUIDES = {
         </p>
 
         <div style="background-color:#0A1019; border:1px solid #FFB400; padding:10px; margin-top:10px;">
-          <span style="color:#FFB400; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
-          <i>"Figure 4 demonstrates that in NISQ quantum vision, shallow depth L=1 is optimal. Deeper quantum circuits increase expressivity and gate depth but disperse gradients without clinical accuracy gains. This confirms that minimal quantum resources yield the best hybrid synergy."</i>
+          <span style="color:#FFB400; font-weight:bold;">[SCIENTIFIC CONCLUSION]</span><br>
+          <i>"Ablation analysis demonstrates that shallow ansatz depth L=1 is optimal for 2D MRI patch classification. Deeper quantum circuits increase gate depth and expressivity but disperse gradient energy without accuracy gain, confirming that minimal quantum circuit depth yields superior hybrid synergy."</i>
         </div>
         """
     },
@@ -758,8 +783,8 @@ HTML_FIGURE_GUIDES = {
         </p>
 
         <div style="background-color:#0A1019; border:1px solid #39FF88; padding:10px; margin-top:10px;">
-          <span style="color:#39FF88; font-weight:bold;">[30-SECOND EXAMINER PITCH]</span><br>
-          <i>"Figure 6 demonstrates the real-world NISQ advantage: while the baseline collapses by over 10% under gate noise, our Model B + Correlated Readout drops by only 2.75%, retaining over 84.5% diagnostic accuracy. Measuring joint entangled observables creates an error-resilient subspace in Hilbert space."</i>
+          <span style="color:#39FF88; font-weight:bold;">[SCIENTIFIC CONCLUSION]</span><br>
+          <i>"Depolarizing noise simulation demonstrates a critical NISQ advantage: while the baseline drops by 10.54% under gate noise, Model B + Correlated Readout drops by only 2.75%, retaining over 84.5% diagnostic accuracy. Measuring joint entangled observables establishes an error-resilient subspace in Hilbert space."</i>
         </div>
         """
     },
@@ -1012,6 +1037,20 @@ class LabLiveLossChart(QWidget):
         self.val_loss.append(v_loss)
         self.update()
 
+    def load_from_history(self, history_path: Path) -> bool:
+        if not history_path.exists():
+            return False
+        try:
+            df = pd.read_csv(history_path)
+            if "train_loss" in df.columns and "val_loss" in df.columns:
+                self.train_loss = [float(x) for x in df["train_loss"] if pd.notnull(x)]
+                self.val_loss = [float(x) for x in df["val_loss"] if pd.notnull(x)]
+                self.update()
+                return len(self.train_loss) > 0
+        except Exception:
+            pass
+        return False
+
     def paintEvent(self, event):
         p = QPainter(self)
         p.setRenderHint(QPainter.Antialiasing, True)
@@ -1027,17 +1066,10 @@ class LabLiveLossChart(QWidget):
         p.setPen(QPen(QColor(COLOR_LINE), 1))
         p.drawRect(0, 0, w - 1, h - 1)
 
-        if not self.train_loss:
-            p.setPen(QColor(COLOR_TEXT_DIM))
-            p.setFont(QFont("JetBrains Mono", 10))
-            p.drawText(QRectF(0, 0, w, h), Qt.AlignCenter, "// NO ACTIVE RUN · PRESS [ > RUN EXPERIMENT ]")
-            p.end()
-            return
-
         n = len(self.train_loss)
-        max_l = max(max(self.train_loss), max(self.val_loss), 1.0)
+        max_l = max(max(self.train_loss), max(self.val_loss), 1.0) if n > 0 else 1.0
 
-        # 10% grid
+        # Grid lines & ticks (always rendered so chart frame is visible)
         p.setPen(QPen(QColor(COLOR_LINE), 1, Qt.DashLine))
         font = QFont("JetBrains Mono", 8)
         p.setFont(font)
@@ -1048,6 +1080,19 @@ class LabLiveLossChart(QWidget):
                 p.setPen(QColor(COLOR_TEXT_DIM))
                 p.drawText(6, y + 4, f"{tick:.2f}")
                 p.setPen(QPen(QColor(COLOR_LINE), 1, Qt.DashLine))
+
+        # Legend
+        p.setPen(QColor(COLOR_CYAN))
+        p.drawText(m_l + 10, m_t - 6, "TRAIN LOSS (CYAN --)")
+        p.setPen(QColor(COLOR_VIOLET))
+        p.drawText(m_l + 160, m_t - 6, "VAL LOSS (VIOLET -)")
+
+        if not self.train_loss:
+            p.setPen(QColor(COLOR_TEXT_DIM))
+            p.setFont(QFont("JetBrains Mono", 9))
+            p.drawText(QRectF(m_l, m_t, cw, ch), Qt.AlignCenter, "// NO ACTIVE RUN · PRESS [ > RUN EXPERIMENT ]")
+            p.end()
+            return
 
         def pt(idx, val):
             x = m_l + (idx / max(1, n - 1)) * cw if n > 1 else m_l + cw / 2
@@ -1064,13 +1109,34 @@ class LabLiveLossChart(QWidget):
         for i in range(n - 1):
             p.drawLine(pt(i, self.val_loss[i]), pt(i + 1, self.val_loss[i + 1]))
 
-        # Legend
-        p.setPen(QColor(COLOR_CYAN))
-        p.drawText(m_l + 10, m_t - 6, "TRAIN LOSS (CYAN --)")
-        p.setPen(QColor(COLOR_VIOLET))
-        p.drawText(m_l + 160, m_t - 6, "VAL LOSS (VIOLET -)")
+        # Epoch point markers (ensures points are rendered even when n == 1)
+        for i in range(n):
+            pt_t = pt(i, self.train_loss[i])
+            pt_v = pt(i, self.val_loss[i])
+            p.setPen(Qt.NoPen)
+            p.setBrush(QBrush(QColor(COLOR_CYAN)))
+            p.drawEllipse(pt_t, 3.0, 3.0)
+            p.setBrush(QBrush(QColor(COLOR_VIOLET)))
+            p.drawEllipse(pt_v, 3.0, 3.0)
+
+        # X-axis epoch tick numbers
+        p.setPen(QColor(COLOR_TEXT_DIM))
+        p.setFont(QFont("JetBrains Mono", 8))
+        if n == 1:
+            p.drawText(QRectF(pt(0, 0).x() - 20, h - m_b + 3, 40, 14), Qt.AlignCenter, "EP 1")
+        elif n <= 25:
+            step = 1 if n <= 10 else 2
+            for i in range(0, n, step):
+                px = pt(i, 0).x()
+                p.drawText(QRectF(px - 15, h - m_b + 3, 30, 14), Qt.AlignCenter, str(i + 1))
+            if (n - 1) % step != 0:
+                px = pt(n - 1, 0).x()
+                p.drawText(QRectF(px - 15, h - m_b + 3, 30, 14), Qt.AlignCenter, str(n))
+
+        latest_t = self.train_loss[-1]
+        latest_v = self.val_loss[-1]
         p.setPen(QColor(COLOR_AMBER))
-        p.drawText(w - m_r - 90, m_t - 6, f"EPOCH {n}")
+        p.drawText(w - m_r - 210, m_t - 6, f"EPOCH {n} [T:{latest_t:.4f} V:{latest_v:.4f}]")
 
         p.end()
 
@@ -1156,10 +1222,10 @@ class LabDashboardView(QWidget):
         btn_pdf = QPushButton("[ OPEN PRESENTATION ]")
         btn_pdf.clicked.connect(self.open_presentation)
 
-        btn_actions_guide = QPushButton("[ ? WORKFLOW ACTIONS GUIDE ]")
+        btn_actions_guide = QPushButton("[ ? ACTION BUTTONS GUIDE ]")
         btn_actions_guide.clicked.connect(self.open_workflow_actions_guide)
 
-        btn_arch_guide = QPushButton("[ ? MODEL B + READOUT GUIDE ]")
+        btn_arch_guide = QPushButton("[ ? ARCHITECTURE GUIDE ]")
         btn_arch_guide.clicked.connect(self.open_model_b_guide)
 
         action_bar.addWidget(btn_bench)
@@ -1354,6 +1420,12 @@ class LabExperimentRunnerView(QWidget):
         self.btn_stop.clicked.connect(self.stop_process)
         left_vbox.addWidget(self.btn_stop)
 
+        left_vbox.addSpacing(6)
+
+        btn_runner_guide = QPushButton("[ ? PARAMETERS & BUTTONS GUIDE ]")
+        btn_runner_guide.clicked.connect(self.open_runner_controls_guide)
+        left_vbox.addWidget(btn_runner_guide)
+
         left_vbox.addStretch()
         layout.addWidget(left_col)
 
@@ -1412,7 +1484,7 @@ class LabExperimentRunnerView(QWidget):
         chart_head_row.addWidget(c_head)
         chart_head_row.addStretch()
 
-        btn_chart_guide = QPushButton("[ ? EXPLAIN DYNAMICS, DRIFT & METRICS ]")
+        btn_chart_guide = QPushButton("[ ? LOSS CURVES & METRICS GUIDE ]")
         btn_chart_guide.setFixedHeight(24)
         btn_chart_guide.clicked.connect(self.open_dynamics_guide)
         chart_head_row.addWidget(btn_chart_guide)
@@ -1435,11 +1507,6 @@ class LabExperimentRunnerView(QWidget):
         self.cons_header.setProperty("class", "text-dim")
         t_box.addWidget(self.cons_header)
         t_box.addStretch()
-
-        btn_console_pitch = QPushButton("[ ? 30-SEC DEMO PITCH ]")
-        btn_console_pitch.setFixedHeight(24)
-        btn_console_pitch.clicked.connect(self.open_pitch_guide)
-        #t_box.addWidget(btn_console_pitch)
 
         self.chk_auto = QCheckBox("AUTO-SCROLL")
         self.chk_auto.setChecked(True)
@@ -1479,10 +1546,25 @@ class LabExperimentRunnerView(QWidget):
         self.timer_cursor.timeout.connect(self.blink_cursor)
         self.timer_cursor.start(500)
 
+        # Auto-load latest existing run history so chart displays immediately on startup
+        self.load_latest_run_history()
+
     def blink_cursor(self):
         self.cursor_state = not self.cursor_state
         mark = "▮" if self.cursor_state else " "
         self.cons_header.setText(f"> EXECUTION CONSOLE {mark}")
+
+    def load_latest_run_history(self):
+        runs_dir = PROJECT_ROOT / "results" / "runs"
+        if not runs_dir.exists():
+            return
+        candidates = list(runs_dir.glob("*/history.csv"))
+        if not candidates:
+            return
+        latest_history = max(candidates, key=lambda p: p.stat().st_mtime)
+        if self.chart.load_from_history(latest_history):
+            self.lbl_status_tag.setText(f"[● {latest_history.parent.name.upper()}]")
+            self.lbl_status_tag.setStyleSheet(f"font-size: 11px; font-weight: 700; color: {COLOR_CYAN};")
 
     def append_log_tagged(self, raw_line: str):
         now_str = datetime.now().strftime("%H:%M:%S")
@@ -1540,10 +1622,19 @@ class LabExperimentRunnerView(QWidget):
             QMessageBox.warning(self, "Process Active", "A script is already running. Please terminate it first.")
             return
 
-        self.chart.clear()
+        is_training = any("run_experiment.py" in str(a) or "run_all.py" in str(a) for a in args)
+        if is_training:
+            self.chart.clear()
+
         self.process = QProcess(self)
         self.process.setProcessChannelMode(QProcess.MergedChannels)
         self.process.setWorkingDirectory(str(PROJECT_ROOT))
+
+        # Unbuffer python stdout so training output streams epoch-by-epoch
+        env = self.process.processEnvironment()
+        env.insert("PYTHONUNBUFFERED", "1")
+        self.process.setProcessEnvironment(env)
+
         self.process.readyReadStandardOutput.connect(self.handle_stdout)
         self.process.finished.connect(self.handle_finished)
 
@@ -1557,7 +1648,7 @@ class LabExperimentRunnerView(QWidget):
         self.btn_grid.setEnabled(False)
         self.btn_stop.setEnabled(True)
 
-        self.process.start(PYTHON_EXE, args)
+        self.process.start(PYTHON_EXE, ["-u"] + args)
 
     def start_single_experiment(self):
         args = [
@@ -1568,6 +1659,7 @@ class LabExperimentRunnerView(QWidget):
             "--epochs", str(self.spin_epochs.value()),
             "--lr-filter", str(self.spin_lr_filter.value()),
             "--patience", str(self.spin_patience.value()),
+            "--force",
         ]
         name = self.edit_run_name.text().strip()
         if name:
@@ -1600,6 +1692,8 @@ class LabExperimentRunnerView(QWidget):
             self.lbl_status_tag.setText("[● FINISHED 0]")
             self.lbl_status_tag.setStyleSheet(f"font-size: 11px; font-weight: 700; color: {COLOR_GREEN};")
             self.append_log_tagged("PROCESS TERMINATED NORMALLY [OK]")
+            if not self.chart.train_loss:
+                self.load_latest_run_history()
         else:
             self.lbl_status_tag.setText(f"[● FAILED {exit_code}]")
             self.lbl_status_tag.setStyleSheet(f"font-size: 11px; font-weight: 700; color: {COLOR_RED};")
@@ -1621,25 +1715,25 @@ class LabExperimentRunnerView(QWidget):
     def clear_log(self):
         self.console.clear()
 
+    def open_runner_controls_guide(self):
+        dlg = LabExplanationDialog(
+            title="EXPERIMENT RUNNER // PARAMETERS & BUTTONS GUIDE",
+            subtitle="INPUT CONFIGURATION & EXECUTION CONTROLS",
+            html_content=HTML_RUNNER_CONTROLS,
+            parent=self,
+            width=920,
+            height=640,
+        )
+        dlg.exec()
+
     def open_dynamics_guide(self):
         dlg = LabExplanationDialog(
-            title="TRAINING DYNAMICS, LOSS CURVES & METRICS",
+            title="TRAINING DYNAMICS & METRICS GUIDE",
             subtitle="INTERPRETING LIVE CHARTS, DRIFT, AND 2-EPOCH TO CONVERGENCE PROGRESSION",
             html_content=HTML_DYNAMICS_AND_METRICS,
             parent=self,
             width=940,
             height=700,
-        )
-        dlg.exec()
-
-    def open_pitch_guide(self):
-        dlg = LabExplanationDialog(
-            title="30-SECOND DEMO SPEAKING PITCHES",
-            subtitle="EXECUTIVE RUNNER & ARCHITECTURE CHEATSHEET FOR EVALUATORS",
-            html_content=HTML_DEMO_PITCHES,
-            parent=self,
-            width=880,
-            height=580,
         )
         dlg.exec()
 
@@ -1990,7 +2084,7 @@ class LabVisualizationsView(QWidget):
 
         top_bar.addStretch()
 
-        btn_explain_fig = QPushButton("[ ? EXPLAIN SELECTED FIGURE ]")
+        btn_explain_fig = QPushButton("[ ? FIGURE DETAILS ]")
         btn_explain_fig.setFixedHeight(28)
         btn_explain_fig.clicked.connect(self.open_figure_guide)
         top_bar.addWidget(btn_explain_fig)
@@ -2295,28 +2389,11 @@ class QForgeLabMainWindow(QMainWindow):
 
         side_vbox.addStretch()
 
-        # 4. Bottom Buttons: [ SMOKE TEST ] & [ 30-SEC DEMO PITCH ]
+        # 4. Bottom Button: [ SMOKE TEST ]
         btn_smoke = QPushButton("[ SMOKE TEST ]")
         btn_smoke.setFixedHeight(34)
         btn_smoke.clicked.connect(lambda: self.view_runner.launch_script(["scripts/benchmark_and_smoke.py"]))
         side_vbox.addWidget(btn_smoke)
-
-        btn_pitches = QPushButton("[ ? 30-SEC DEMO PITCH ]")
-        btn_pitches.setFixedHeight(34)
-        btn_pitches.setStyleSheet(f"""
-            QPushButton {{
-                border: 1px solid {COLOR_CYAN};
-                color: {COLOR_CYAN};
-                background: rgba(0, 229, 255, 0.08);
-                font-weight: 700;
-            }}
-            QPushButton:hover {{
-                background: rgba(0, 229, 255, 0.18);
-                color: #FFFFFF;
-            }}
-        """)
-        btn_pitches.clicked.connect(self.open_demo_pitches_modal)
-        #side_vbox.addWidget(btn_pitches)
 
         root_layout.addWidget(sidebar)
 
@@ -2350,6 +2427,8 @@ class QForgeLabMainWindow(QMainWindow):
             label = self.nav_items[i][0]
             # Active item is solid cyan block without >, inactive has >
             b.setText(label if i == idx else f"> {label}")
+        if idx == 1 and not self.view_runner.chart.train_loss:
+            self.view_runner.load_latest_run_history()
 
     @Slot(str, list)
     def handle_action(self, action_name: str, args: list):
@@ -2361,17 +2440,6 @@ class QForgeLabMainWindow(QMainWindow):
             self.view_runner.process.kill()
             self.view_runner.process.waitForFinished(1000)
         event.accept()
-
-    def open_demo_pitches_modal(self):
-        dlg = LabExplanationDialog(
-            title="DEMO SPEAKING PITCHES & CHEATSHEET",
-            subtitle="CONCISE 30-SECOND PITCHES FOR LIVE EVALUATORS AND EXAMINERS",
-            html_content=HTML_DEMO_PITCHES,
-            parent=self,
-            width=880,
-            height=620,
-        )
-        dlg.exec()
 
 
 def main():

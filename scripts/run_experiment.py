@@ -24,6 +24,7 @@ def parse_args():
     parser.add_argument("--lr-backbone", type=float, default=None, help="Backbone learning rate")
     parser.add_argument("--patience", type=int, default=None, help="Early stopping patience")
     parser.add_argument("--run-name", type=str, default=None, help="Custom run name")
+    parser.add_argument("--force", action="store_true", help="Force fresh re-training even if run already completed")
     return parser.parse_args()
 
 
@@ -57,7 +58,7 @@ def main():
     print(f"Launching experiment: {run_name}")
     print(f"Filter mode: {mode}, Seed: {seed}, Run directory: {run_dir}")
 
-    trainer = Trainer(config, run_dir=run_dir)
+    trainer = Trainer(config, run_dir=run_dir, force=args.force)
     results = trainer.run()
     print("\nExperiment execution completed successfully.")
     return results

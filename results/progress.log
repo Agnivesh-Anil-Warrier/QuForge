@@ -86,3 +86,32 @@
 [2026-10-14 19:06:08] [24/32] COMPLETED: ablation_depth_L3_seed42 in 745.1s (50 epochs) | Val Acc: 0.9277 | Test Acc: 0.8594 | F1: 0.7789 | AUC: 0.8925 | Drift: 2.134366 | Est. Time Left: 0.57h
 [2026-10-14 19:06:08] ---------------------------------------------------------------------------
 [2026-10-14 19:06:08] [25/32] STARTING: ablation_depth_L3_seed43 | Mode: trainable | Seed: 43 | Depth: 3 | lr_filter: 0.01
+[2026-10-22 13:56:39] ===========================================================================
+[2026-10-22 13:56:39] QForge Phase 5: Commencing Experiment Grid Execution (32 total runs)
+[2026-10-22 13:56:39] Main Seeds: [42, 43, 44, 45, 46] | Ablation Seeds: [42, 43, 44]
+[2026-10-22 13:56:39] ===========================================================================
+[2026-10-22 13:56:39] [1/32] SKIPPING (Already completed): model_A_frozen_seed42
+[2026-10-22 13:56:39] [2/32] SKIPPING (Already completed): model_A_frozen_seed43
+[2026-10-22 13:56:39] [3/32] SKIPPING (Already completed): model_A_frozen_seed44
+[2026-10-22 13:56:39] [4/32] SKIPPING (Already completed): model_A_frozen_seed45
+[2026-10-22 13:56:39] [5/32] SKIPPING (Already completed): model_A_frozen_seed46
+[2026-10-22 13:56:39] [6/32] SKIPPING (Already completed): model_B_trainable_seed42
+[2026-10-22 13:56:40] [7/32] SKIPPING (Already completed): model_B_trainable_seed43
+[2026-10-22 13:56:40] [8/32] SKIPPING (Already completed): model_B_trainable_seed44
+[2026-10-22 13:56:40] [9/32] SKIPPING (Already completed): model_B_trainable_seed45
+[2026-10-22 13:56:40] [10/32] SKIPPING (Already completed): model_B_trainable_seed46
+[2026-10-22 13:56:40] [11/32] SKIPPING (Already completed): model_C_classical_seed42
+[2026-10-22 13:56:40] [12/32] SKIPPING (Already completed): model_C_classical_seed43
+[2026-10-22 13:56:40] [13/32] SKIPPING (Already completed): model_C_classical_seed44
+[2026-10-22 13:56:40] [14/32] SKIPPING (Already completed): model_C_classical_seed45
+[2026-10-22 13:56:40] [15/32] SKIPPING (Already completed): model_C_classical_seed46
+[2026-10-22 13:56:40] [16/32] SKIPPING (Already completed): model_D_none_seed42
+[2026-10-22 13:56:40] [17/32] SKIPPING (Already completed): model_D_none_seed43
+[2026-10-22 13:56:40] [18/32] SKIPPING (Already completed): model_D_none_seed44
+[2026-10-22 13:56:40] [19/32] SKIPPING (Already completed): model_D_none_seed45
+[2026-10-22 13:56:40] [20/32] SKIPPING (Already completed): model_D_none_seed46
+[2026-10-22 13:56:40] [21/32] SKIPPING (Already completed): ablation_depth_L2_seed42
+[2026-10-22 13:56:40] [22/32] SKIPPING (Already completed): ablation_depth_L2_seed43
+[2026-10-22 13:56:40] [23/32] SKIPPING (Already completed): ablation_depth_L2_seed44
+[2026-10-22 13:56:40] [24/32] SKIPPING (Already completed): ablation_depth_L3_seed42
+[2026-10-22 13:56:40] [25/32] STARTING: ablation_depth_L3_seed43 | Mode: trainable | Seed: 43 | Depth: 3 | lr_filter: 0.01

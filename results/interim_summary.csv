@@ -3,6 +3,7 @@ ablation_depth_L2_seed42,trainable,2,42,38,0.9229,0.8603,0.8309,0.7875,0.8835,0.
 ablation_depth_L2_seed43,trainable,2,43,38,0.9229,0.8557,0.8167,0.7704,0.8736,0.6971,1.968101
 ablation_depth_L2_seed44,trainable,2,44,28,0.9217,0.8557,0.8196,0.7737,0.8845,0.624,1.143263
 ablation_depth_L3_seed42,trainable,3,42,50,0.9277,0.8594,0.8231,0.7789,0.8925,0.792,2.134366
+exp_trainable_seed42,trainable,1,42,2,0.8386,0.7579,0.6937,0.5806,0.793,0.7976,0.555525
 model_A_frozen_seed42,frozen_random,1,42,65,0.9277,0.8641,0.8338,0.792,0.866,0.8844,0.0
 model_A_frozen_seed43,frozen_random,1,43,56,0.9289,0.8585,0.8242,0.7797,0.8755,0.8607,0.0
 model_A_frozen_seed44,frozen_random,1,44,29,0.9169,0.8287,0.7804,0.7178,0.8466,0.6919,0.0
