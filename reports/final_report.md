@@ -1,6 +1,6 @@
 # QForge: Empirical Evaluation of Hybrid Quantum-Classical-Quantum CNN for Brain Tumor MRI Classification
 
-*Generated on: 2026-10-14 18:14:19*
+*Generated on: 2026-10-22 13:20:53*
 
 ## 1. Executive Summary
 This project reproduces and extends the hybrid quantum-classical-quantum convolutional neural network (QCQ-CNN) architecture proposed by Long et al. (2025) (*Scientific Reports* 15, 31780) for binary brain tumor MRI classification (Malignant Glioma vs. Benign Meningioma/Pituitary).
@@ -24,8 +24,13 @@ Below is the performance summary across independent seeds (Mean ± Standard Devi
 
 | Model Architecture | Seeds | Test Accuracy | Balanced Acc | F1 Score | ROC-AUC | Parameter Drift | Test Loss |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Ablation Depth L=2 | 3 | 85.72% ± 0.27% | 82.24% ± 0.75% | 77.72% ± 0.91% | 88.05% ± 0.60% | 1.7005 ± 0.4827 rad | 0.6570 ± 0.0371 |
+| Ablation Depth L=3 | 1 | 85.94% ± 0.00% | 82.31% ± 0.00% | 77.89% ± 0.00% | 89.25% ± 0.00% | 2.1344 ± 0.0000 rad | 0.7920 ± 0.0000 |
 | Model A (frozen_random) | 5 | 85.75% ± 1.66% | 82.34% ± 2.49% | 77.77% ± 3.44% | 87.33% ± 1.94% | 0.0000 ± 0.0000 rad | 0.7609 ± 0.1024 |
 | Model B (trainable) | 5 | 85.36% ± 1.14% | 82.22% ± 1.17% | 77.58% ± 1.61% | 87.34% ± 1.11% | 1.8286 ± 0.9318 rad | 0.7007 ± 0.0557 |
+| Model C (classical_conv) | 5 | 85.25% ± 1.67% | 81.58% ± 2.02% | 76.81% ± 2.85% | 87.71% ± 1.94% | 0.0000 ± 0.0000 rad | 0.7616 ± 0.1132 |
+| Model D (none) | 5 | 86.09% ± 0.85% | 82.63% ± 1.09% | 78.28% ± 1.51% | 88.92% ± 1.69% | 0.0000 ± 0.0000 rad | 0.7321 ± 0.1288 |
+| other | 1 | 75.79% ± 0.00% | 69.37% ± 0.00% | 58.06% ± 0.00% | 79.30% ± 0.00% | 0.5555 ± 0.0000 rad | 0.7976 ± 0.0000 |
 
 ## 4. Statistical Significance Analysis (Model A vs. Model B)
 A paired analysis across 5 identical seeds ([42, 43, 44, 45, 46]) was conducted:

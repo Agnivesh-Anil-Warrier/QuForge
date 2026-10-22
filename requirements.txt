@@ -12,3 +12,4 @@ imagehash
 pytest
 jupyter
 streamlit
+PySide6

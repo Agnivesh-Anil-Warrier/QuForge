@@ -1,0 +1,28 @@
+{
+  "experiment": "exp_trainable_seed42",
+  "filter_mode": "trainable",
+  "filter_depth": 1,
+  "seed": 42,
+  "best_val_acc": 0.8385542168674699,
+  "test_metrics": {
+    "accuracy": 0.7579143389199255,
+    "balanced_accuracy": 0.6936519298724023,
+    "precision": 0.7531380753138075,
+    "recall": 0.47244094488188976,
+    "f1": 0.5806451612903226,
+    "roc_auc": 0.7929652732802339,
+    "confusion_matrix": [
+      [
+        634,
+        59
+      ],
+      [
+        201,
+        180
+      ]
+    ],
+    "loss": 0.7976228524852731
+  },
+  "final_parameter_drift": 0.5555252432823181,
+  "total_epochs_trained": 2
+}
