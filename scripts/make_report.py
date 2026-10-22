@@ -445,7 +445,7 @@ def plot_ablations(df: pd.DataFrame, figures_dirs: List[Path]) -> None:
 
     if depth_data:
         ddf = pd.DataFrame(depth_data)
-        sns.barplot(data=ddf, x="depth", y="test_acc", ax=axes[0], palette="Blues_d", capsize=0.1)
+        sns.barplot(data=ddf, x="depth", y="test_acc", hue="depth", legend=False, ax=axes[0], palette="Blues_d", capsize=0.1)
         axes[0].set_title("Test Accuracy vs. Filter Depth $L$")
         axes[0].set_xlabel("Circuit Depth ($L$)")
         axes[0].set_ylabel("Test Accuracy")
@@ -465,7 +465,7 @@ def plot_ablations(df: pd.DataFrame, figures_dirs: List[Path]) -> None:
 
     if lr_data:
         ldf = pd.DataFrame(lr_data)
-        sns.barplot(data=ldf, x="lr", y="test_acc", ax=axes[1], palette="Reds_d", capsize=0.1)
+        sns.barplot(data=ldf, x="lr", y="test_acc", hue="lr", legend=False, ax=axes[1], palette="Reds_d", capsize=0.1)
         axes[1].set_title(r"Test Accuracy vs. Filter Learning Rate $\eta$")
         axes[1].set_xlabel(r"Filter Learning Rate ($\eta$)")
         axes[1].set_ylabel("Test Accuracy")
@@ -528,7 +528,7 @@ def generate_quantum_feature_maps(figures_dirs: List[Path], runs_dir: Path) -> N
     ch_names = [r"$\langle Z_0 \rangle$", r"$\langle Z_1 \rangle$", r"$\langle Z_2 \rangle$", r"$\langle Z_3 \rangle$"]
     for c in range(4):
         im1 = axes[0, c + 1].imshow(feat_before[c], cmap="viridis", vmin=-1.0, vmax=1.0)
-        axes[0, c + 1].set_title(f"Initial Ch {c}: {ch_names[c]}\nBefore Training ($\mathbf{{\\theta}}_0$)")
+        axes[0, c + 1].set_title(f"Initial Ch {c}: {ch_names[c]}\n" + r"Before Training ($\theta_0$)")
         axes[0, c + 1].axis("off")
 
     # Row 2: After Training
@@ -538,7 +538,7 @@ def generate_quantum_feature_maps(figures_dirs: List[Path], runs_dir: Path) -> N
 
     for c in range(4):
         im2 = axes[1, c + 1].imshow(feat_after[c], cmap="viridis", vmin=-1.0, vmax=1.0)
-        axes[1, c + 1].set_title(f"Trained Ch {c}: {ch_names[c]}\nAfter Training ($\mathbf{{\\theta}}^*$)")
+        axes[1, c + 1].set_title(f"Trained Ch {c}: {ch_names[c]}\n" + r"After Training ($\theta^*$)")
         axes[1, c + 1].axis("off")
 
     # Row 3: Absolute Delta
@@ -548,14 +548,14 @@ def generate_quantum_feature_maps(figures_dirs: List[Path], runs_dir: Path) -> N
 
     for c in range(4):
         im3 = axes[2, c + 1].imshow(feat_diff[c], cmap="inferno", vmin=0.0, vmax=max(0.5, float(feat_diff.max())))
-        axes[2, c + 1].set_title(f"Absolute Delta Ch {c}\nMax $|\Delta|={feat_diff[c].max():.3f}$")
+        axes[2, c + 1].set_title(f"Absolute Delta Ch {c}\n" + rf"Max $|\Delta|={feat_diff[c].max():.3f}$")
         axes[2, c + 1].axis("off")
 
     fig.colorbar(im1, ax=[axes[0, 1], axes[0, 2], axes[0, 3], axes[0, 4]], shrink=0.8, label=r"Expectation $\langle Z_i \rangle$")
     fig.colorbar(im3, ax=[axes[2, 1], axes[2, 2], axes[2, 3], axes[2, 4]], shrink=0.8, label=r"Absolute $|\Delta \langle Z_i \rangle|$")
 
     plt.suptitle("Quantum Filter Feature Maps: Initial vs. End-to-End Trained Plasticity", fontsize=14, y=0.98)
-    plt.tight_layout()
+    plt.subplots_adjust(top=0.92, bottom=0.06, left=0.04, right=0.96, hspace=0.35, wspace=0.25)
     for f_dir in figures_dirs:
         f_dir.mkdir(parents=True, exist_ok=True)
         plt.savefig(f_dir / "fig5_quantum_feature_maps.png")

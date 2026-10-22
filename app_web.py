@@ -2,10 +2,9 @@
 
 Author: Team QForge (IIIT Kottayam)
 Lead: Yashwanth S (2024BCS0264)
-Run with: .\\.venv\\Scripts\\streamlit.exe run app_web.py
+Run with: python app_web.py OR .\\.venv\\Scripts\\streamlit.exe run app_web.py
 """
 
-import io
 from pathlib import Path
 import sys
 from typing import Dict, List, Optional, Tuple
@@ -13,8 +12,31 @@ from typing import Dict, List, Optional, Tuple
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+# ---------------------------------------------------------------------------
+# Streamlit Runner Bootstrap
+# Allows direct execution via `python app_web.py` without bare-mode warnings
+# ---------------------------------------------------------------------------
+try:
+    from streamlit.runtime.scriptrunner_utils.script_run_context import get_script_run_ctx
+    _ctx = get_script_run_ctx(suppress_warning=True)
+except Exception:
+    try:
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+        _ctx = get_script_run_ctx()
+    except Exception:
+        _ctx = None
+
+if _ctx is None:
+    from streamlit.web import cli as stcli
+    app_path = str(Path(__file__).resolve())
+    print(f"Launching QForge Web Studio on http://localhost:8501 ...")
+    sys.argv = ["streamlit", "run", app_path] + sys.argv[1:]
+    sys.exit(stcli.main())
+
+import io
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from PIL import Image
 import streamlit as st
 import torch
@@ -197,6 +219,27 @@ def load_cached_models():
             filter_mode="trainable", use_correlated_readout=True, seed=42
         ),
     }
+
+    # Load trained checkpoint weights if available in results/
+    ckpt_a = PROJECT_ROOT / "results" / "runs" / "model_A_frozen_seed42" / "checkpoint_best.pt"
+    if ckpt_a.exists():
+        try:
+            state = torch.load(ckpt_a, map_location="cpu", weights_only=False)
+            sd = state.get("model_state", state)
+            models["Model A (Frozen Random)"].load_state_dict(sd, strict=False)
+        except Exception:
+            pass
+
+    ckpt_b = PROJECT_ROOT / "results" / "runs" / "model_B_trainable_seed42" / "checkpoint_best.pt"
+    if ckpt_b.exists():
+        try:
+            state = torch.load(ckpt_b, map_location="cpu", weights_only=False)
+            sd = state.get("model_state", state)
+            models["Model B (Trainable Filter)"].load_state_dict(sd, strict=False)
+            models["Model B + Correlated Readout"].load_state_dict(sd, strict=False)
+        except Exception:
+            pass
+
     for m in models.values():
         m.eval()
     return models
@@ -306,15 +349,28 @@ with tab1:
 
     uploaded_file = st.file_uploader("Or Upload MRI Image (JPG / PNG)", type=["png", "jpg", "jpeg"])
 
-    pil_image = None
+    if "sample_mode" not in st.session_state:
+        st.session_state["sample_mode"] = "glioma"
+        st.session_state["custom_pil"] = None
+
     if use_glioma:
-        pil_image = generate_synthetic_mri("glioma")
+        st.session_state["sample_mode"] = "glioma"
+        st.session_state["custom_pil"] = None
     elif use_benign:
-        pil_image = generate_synthetic_mri("benign")
+        st.session_state["sample_mode"] = "benign"
+        st.session_state["custom_pil"] = None
     elif uploaded_file is not None:
-        pil_image = Image.open(uploaded_file)
+        try:
+            st.session_state["custom_pil"] = Image.open(uploaded_file)
+            st.session_state["sample_mode"] = "uploaded"
+        except Exception as e:
+            st.error(f"Error reading image: {e}")
+
+    if st.session_state["sample_mode"] == "uploaded" and st.session_state["custom_pil"] is not None:
+        pil_image = st.session_state["custom_pil"]
+    elif st.session_state["sample_mode"] == "benign":
+        pil_image = generate_synthetic_mri("benign")
     else:
-        # Default placeholder demo
         pil_image = generate_synthetic_mri("glioma")
 
     tensor_28, arr_28 = preprocess_image(pil_image)
@@ -383,6 +439,7 @@ with tab1:
         fig_ch.patch.set_facecolor("#0A1019")
         st.pyplot(fig_ch)
         plt.close(fig_ch)
+        
 
     with col_result:
         st.markdown("**3. Diagnostic Classification**")
@@ -450,7 +507,7 @@ with tab2:
         "F1 Score": ["77.77% ± 3.44%", "77.58% ± 1.61%", "79.80% ± 1.20%"],
         "Parameter Drift ||θ - θ₀||": ["0.0000 rad", "1.8286 ± 0.93 rad", "1.9120 ± 0.80 rad"],
     }
-    st.table(bench_data)
+    st.table(pd.DataFrame(bench_data))
 
     st.markdown("### 📌 Key Findings for Faculty Review")
     st.markdown("""
@@ -494,6 +551,7 @@ with tab4:
         ("Learning Dynamics (Fig 1)", PROJECT_ROOT / "reports" / "figures" / "fig1_learning_curves.png"),
         ("Quantum Parameter Drift (Fig 2)", PROJECT_ROOT / "reports" / "figures" / "fig2_parameter_drift.png"),
         ("Confusion Matrices & ROC (Fig 3)", PROJECT_ROOT / "reports" / "figures" / "fig3_confusion_and_roc.png"),
+        ("Ablation Studies (Fig 4)", PROJECT_ROOT / "reports" / "figures" / "fig4_ablations.png"),
         ("Quantum Feature Maps (Fig 5)", PROJECT_ROOT / "reports" / "figures" / "fig5_quantum_feature_maps.png"),
     ]
 
